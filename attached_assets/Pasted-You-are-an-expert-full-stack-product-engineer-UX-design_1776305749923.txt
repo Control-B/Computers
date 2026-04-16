@@ -1,0 +1,544 @@
+You are an expert full-stack product engineer, UX designer, SEO strategist, and AdSense-aware utility-site builder.
+
+Build a production-quality web application called "FinUtility AI" (working title) that combines:
+1. an AI-first homepage hero
+2. structured utility calculators
+3. AI explanation of results
+4. SEO content pages
+5. ad-friendly layouts
+6. clean modern design
+7. strong internal linking
+8. room for future monetization with Google AdSense and affiliate offers
+
+The goal is to build a real problem-solving utility website that users actually find useful, trust, and return to.
+
+====================================
+CORE PRODUCT VISION
+====================================
+
+This is NOT just a landing page.
+This is a multi-page utility website with:
+- one homepage
+- multiple calculator/tool pages
+- category pages
+- informational SEO pages
+- legal pages
+
+The site should feel modern, clean, fast, trustworthy, and helpful.
+Design inspiration:
+- OpenAI-style hero section
+- modern SaaS spacing
+- minimal but professional
+- white/light background
+- dark text
+- blue accent color
+- very clear hierarchy
+- responsive on mobile and desktop
+
+The homepage hero should allow natural-language input like:
+"Calculate compound interest on 10000 dollars at 5 percent for 5 years"
+
+Below the AI hero, the page should include structured modules and featured tools.
+
+IMPORTANT:
+AI should assist and explain, but deterministic math logic must be the source of truth for calculations.
+Do NOT let AI invent numeric results.
+Calculations must be done by code/functions first, then AI explains the result.
+
+====================================
+TECH STACK
+====================================
+
+Build using:
+- Next.js or React with a clean modern structure
+- TypeScript preferred
+- Tailwind CSS for styling
+- modular reusable components
+- chart library for diagrams/analytics (Recharts preferred)
+- local mock AI explanation layer for now
+- architecture ready for future OpenAI API integration
+- SEO-friendly routing
+- clean component organization
+
+If Next.js is used:
+- use App Router
+- create route-based pages for each tool and article
+- support metadata per page
+
+====================================
+SITE ARCHITECTURE
+====================================
+
+Build the site with the following pages and structure.
+
+1. Homepage
+Route:
+/
+
+Purpose:
+- brand entry point
+- AI-first hero
+- showcase top tools
+- educate users
+- route traffic to high-value pages
+
+Sections:
+- Header/navbar
+- Hero with large AI input
+- Example prompts under hero
+- Featured calculators grid
+- “How it works” section
+- AI Insights section
+- Educational content preview
+- Category cards
+- FAQ
+- Footer
+
+2. Category Pages
+Routes:
+- /finance
+- /crypto
+- /loans
+
+Purpose:
+- organize tool families
+- improve SEO
+- improve internal linking
+
+Each category page should include:
+- category hero
+- tool cards
+- short educational intro
+- FAQ
+- internal links to tools and articles
+
+3. Core Tool Pages
+Build these 6 main tools:
+
+A. Compound Interest Calculator
+Route:
+- /compound-interest-calculator
+
+Functions:
+- initial amount
+- annual interest rate
+- years
+- compounding frequency
+- optional monthly contribution
+
+Outputs:
+- future value
+- total contributions
+- total interest earned
+- year-by-year growth chart
+- breakdown table
+- AI explanation section
+
+B. Mortgage Calculator
+Route:
+- /mortgage-calculator
+
+Functions:
+- home price
+- down payment
+- interest rate
+- loan term
+- property tax
+- insurance
+- HOA optional
+
+Outputs:
+- monthly payment
+- principal/interest split
+- amortization overview
+- pie chart
+- AI explanation
+
+C. Loan Payment Calculator
+Route:
+- /loan-payment-calculator
+
+Functions:
+- loan amount
+- rate
+- term
+- payment frequency
+
+Outputs:
+- payment amount
+- total interest
+- total repayment
+- schedule summary
+- AI explanation
+
+D. Currency Converter
+Route:
+- /currency-converter
+
+Functions:
+- from currency
+- to currency
+- amount
+
+For MVP:
+- use mocked/stubbed exchange rates stored in JSON
+- structure app so API can be connected later
+
+Outputs:
+- converted value
+- rate used
+- AI explanation about conversion context
+
+E. Crypto Profit/Loss Calculator
+Route:
+- /crypto-profit-calculator
+
+Functions:
+- coin/token name
+- buy price
+- sell price or current price
+- quantity
+- fees optional
+
+Outputs:
+- gross profit/loss
+- net profit/loss
+- ROI percentage
+- break-even price
+- AI explanation
+
+F. Savings Goal Calculator
+Route:
+- /savings-goal-calculator
+
+Functions:
+- target amount
+- current savings
+- monthly contribution
+- expected annual return
+- timeline optional
+
+Outputs:
+- time to target
+- required monthly savings if timeline fixed
+- growth chart
+- AI explanation
+
+4. SEO Educational Pages
+Build at least 9 content pages:
+
+Finance articles:
+- /what-is-compound-interest
+- /how-compound-interest-works
+- /how-to-calculate-mortgage-payments
+- /loan-interest-explained
+- /how-to-save-money-faster
+
+Crypto articles:
+- /how-to-calculate-crypto-profit
+- /crypto-profit-vs-loss-explained
+
+Currency / money articles:
+- /how-currency-conversion-works
+- /what-affects-exchange-rates
+
+Each article page should contain:
+- strong headline
+- intro
+- educational body sections
+- bullet list summaries
+- related calculators
+- FAQ
+- internal links to related pages
+- ad placeholder zones
+
+5. Legal / Trust Pages
+Build:
+- /privacy-policy
+- /terms-of-use
+- /disclaimer
+- /about
+- /contact
+
+The disclaimer page must clearly state:
+- informational only
+- not financial advice
+- AI explanations are educational only
+- calculations are estimates where applicable
+
+====================================
+PAGE LAYOUT RULES
+====================================
+
+Every tool page should follow this layout:
+
+1. Hero
+- OpenAI-style AI input box
+- large title
+- subtitle
+- example prompts
+
+2. Calculator Section
+- structured form inputs
+- clean card layout
+- prominent calculate button
+
+3. Results Section
+- bold outputs
+- charts/graphs
+- useful numeric summaries
+
+4. AI Insights Section
+- explanation in plain English
+- what the result means
+- practical suggestions
+- “try related tool” links
+
+5. Educational Content Section
+- short article on page topic
+- SEO text
+- FAQs
+
+6. Footer
+
+====================================
+AI UX REQUIREMENTS
+====================================
+
+Implement a hybrid AI + form experience.
+
+Requirements:
+- user can type a natural-language calculation request in the hero input
+- the system should parse common phrases and auto-fill calculator fields where possible
+- user can still manually edit the form
+- calculation runs using deterministic code
+- AI insight is generated from the calculation result object
+
+For MVP:
+- build a lightweight parser for common phrases
+- no need for full LLM integration yet
+- structure code so real AI API can be added later
+
+Examples:
+- “calculate compound interest on 10000 at 5% for 5 years”
+- “what’s my mortgage payment on 300k with 20 percent down at 6.5 percent”
+- “if I bought 2 bitcoin at 30000 and sold at 45000 what is my profit”
+
+The parser should:
+- detect which tool is intended
+- prefill fields
+- route or update the current tool page appropriately
+
+====================================
+SEO REQUIREMENTS
+====================================
+
+Make this site SEO-friendly.
+
+Requirements:
+- clean semantic HTML
+- unique page titles and meta descriptions
+- headings hierarchy
+- internal linking between tools and articles
+- FAQ sections on major pages
+- readable URLs
+- fast loading
+- mobile responsive
+- no heavy unnecessary animation
+
+Add schema-ready structure where appropriate:
+- FAQ blocks
+- article structure
+- tool/calculator pages
+
+====================================
+ADSENSE / MONETIZATION REQUIREMENTS
+====================================
+
+Do not integrate real ads yet.
+Instead, create tasteful ad placeholder components.
+
+Add ad placeholder slots in these locations:
+- below homepage hero
+- between calculator and results
+- below results
+- inside educational content pages
+- sidebar-style placeholder on desktop if layout supports it
+
+The placeholders should be visually subtle and clearly replaceable later with AdSense blocks.
+
+Do not make the page spammy.
+Keep layouts trust-focused.
+
+====================================
+DESIGN REQUIREMENTS
+====================================
+
+Style:
+- modern SaaS / financial utility style
+- clear typography
+- strong spacing
+- rounded cards
+- subtle shadows
+- blue CTA buttons
+- chart colors consistent and professional
+- clean mobile design
+
+Components to build:
+- Navbar
+- Footer
+- AI hero input
+- Calculator card
+- Result summary cards
+- Chart module
+- AI insight card
+- Tool card
+- Category card
+- FAQ accordion
+- Ad placeholder block
+- Article content section
+
+====================================
+FUNCTIONAL REQUIREMENTS
+====================================
+
+Implement real math logic for all calculators.
+
+Need utility functions for:
+- compound interest math
+- amortization/payment calculations
+- loan payment formulas
+- ROI/profit math
+- savings growth math
+- mock currency conversion logic
+
+Also include:
+- reusable formatting helpers
+- currency formatting
+- percent formatting
+- date/time helpers if needed
+
+====================================
+NAVIGATION REQUIREMENTS
+====================================
+
+Navbar should include:
+- Home
+- Finance
+- Crypto
+- Loans
+- About
+- Contact
+
+Homepage should prominently feature:
+- 6 main calculators
+- 3 categories
+- latest educational guides
+
+Footer should include:
+- all key links
+- disclaimer
+- legal pages
+- contact
+- copyright
+
+====================================
+REAL PROBLEM-SOLVER REQUIREMENTS
+====================================
+
+This website must feel genuinely useful.
+
+Each tool should help solve a real user problem:
+- “How much will my money grow?”
+- “Can I afford this mortgage?”
+- “What will my loan payment be?”
+- “Did I make money on this crypto trade?”
+- “How much do I need to save to hit my goal?”
+- “How much is this in another currency?”
+
+AI insights should not be generic fluff.
+They should be practical and context-aware based on actual results.
+
+Example:
+If monthly mortgage payment is high relative to principal, explain how rate affects payment.
+If compound interest result is strong, explain effect of time and contributions.
+If crypto ROI is negative, explain break-even price and fee impact.
+
+====================================
+FOLDER / CODE QUALITY REQUIREMENTS
+====================================
+
+Keep code organized and production-friendly.
+
+Suggested structure:
+- components/
+- app/ or pages/
+- lib/
+- utils/
+- data/
+- content/
+- styles/
+
+Need:
+- reusable calculator engine pattern
+- reusable page templates
+- clean TypeScript types
+- comments where necessary
+- maintainable code
+- no messy one-file build
+
+====================================
+DELIVERABLES
+====================================
+
+Build a working MVP with:
+- homepage
+- 3 category pages
+- 6 calculator pages
+- 9 educational content pages
+- 5 trust/legal pages
+
+Total pages:
+- 24 pages minimum
+
+Also include:
+- reusable components
+- ad placeholders
+- charts
+- working calculator logic
+- AI-assisted form autofill behavior
+- SEO-friendly structure
+
+====================================
+STARTING PRIORITY
+====================================
+
+Build in this order:
+1. overall app shell, navbar, footer
+2. homepage
+3. reusable calculator framework
+4. compound interest calculator
+5. mortgage calculator
+6. loan calculator
+7. crypto calculator
+8. savings goal calculator
+9. currency converter
+10. category pages
+11. content pages
+12. legal pages
+13. polish and mobile responsiveness
+
+====================================
+FINAL OUTPUT EXPECTATION
+====================================
+
+The result should feel like:
+- a real consumer finance utility brand
+- modern enough to compete visually
+- structured enough for SEO
+- flexible enough for future AI integration
+- monetizable with Google AdSense and affiliate links
+- useful enough that users actually trust and use it
+
+Now begin building the full project.
+Start by scaffolding the app, then create the homepage, shared layout, and first calculator page.
