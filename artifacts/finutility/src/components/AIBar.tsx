@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { BarChart2, ArrowUp, AlertCircle, TrendingUp, ExternalLink } from "lucide-react";
 import { useLocation } from "wouter";
 import { parseNaturalLanguage } from "@/lib/nlParser";
@@ -7,11 +7,14 @@ import { getInsight, CARD_POOLS, type Insight } from "@/lib/insightEngine";
 interface FinancialInsightBarProps {
   placeholder?: string;
   accentColor?: string;
+  /** When set, replaces the default rotating topic pools with one label per card (cycled across six slots). */
+  suggestions?: string[];
 }
 
 export function AIBar({
   placeholder = "Ask anything about your finances…",
   accentColor = "text-emerald-600",
+  suggestions,
 }: FinancialInsightBarProps) {
   const [, setLocation] = useLocation();
   const [query, setQuery] = useState("");
@@ -22,6 +25,13 @@ export function AIBar({
   /* ── Rotating card indices ─────────────────────────────────────────── */
   const [cardIndices, setCardIndices] = useState([0, 0, 0, 0, 0, 0]);
   const [fadingCard, setFadingCard] = useState<number | null>(null);
+
+  const cardPools = useMemo(() => {
+    if (suggestions?.length) {
+      return Array.from({ length: 6 }, (_, i) => [suggestions[i % suggestions.length]]);
+    }
+    return CARD_POOLS;
+  }, [suggestions]);
 
   useEffect(() => {
     let turn = 0;
@@ -102,7 +112,7 @@ export function AIBar({
 
         {/* 2×3 rotating topic cards */}
         <div className="grid grid-cols-3 gap-3">
-          {CARD_POOLS.map((pool, i) => (
+          {cardPools.map((pool, i) => (
             <button
               key={i}
               onClick={() => handleSubmit(pool[cardIndices[i]])}

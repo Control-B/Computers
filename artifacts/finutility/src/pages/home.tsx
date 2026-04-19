@@ -12,7 +12,7 @@ import { ToolCard } from "@/components/ToolCard";
 import { CategoryCard } from "@/components/CategoryCard";
 import { FAQAccordion } from "@/components/FAQAccordion";
 import { parseNaturalLanguage } from "@/lib/nlParser";
-import { motion } from "framer-motion";
+import { motion, type Variants } from "framer-motion";
 import heroBackground from "@assets/Landing7.jpeg";
 import heroDashboard from "@assets/Landing62.jpeg";
 import step1Image from "@assets/Landing47.jpeg";
@@ -97,9 +97,13 @@ export default function HomePage() {
     }
   };
 
-  const itemVariants = {
+  const itemVariants: Variants = {
     hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } }
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.5, ease: "easeOut" },
+    },
   };
 
   return (
