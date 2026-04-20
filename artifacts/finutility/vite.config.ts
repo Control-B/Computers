@@ -4,10 +4,8 @@ import tailwindcss from "@tailwindcss/vite";
 import path from "path";
 import runtimeErrorOverlay from "@replit/vite-plugin-runtime-error-modal";
 
-function resolvePort(command: "build" | "serve"): number {
-  if (command === "build") {
-    return 5173;
-  }
+/** Dev/preview listening port. CI `vite build` does not need a real port; Replit dev expects PORT. */
+function resolveListeningPort(): number {
   const rawPort = process.env.PORT;
   if (!rawPort) {
     if (process.env.REPL_ID !== undefined) {
@@ -34,9 +32,9 @@ const replitPlugins: PluginOption[] =
       ]
     : [];
 
-export default defineConfig(({ command }) => {
+export default defineConfig(() => {
   const basePath = process.env.BASE_PATH ?? "/";
-  const port = resolvePort(command);
+  const port = resolveListeningPort();
 
   return {
     base: basePath,
