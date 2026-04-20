@@ -9,7 +9,6 @@ import {
   Wallet,
   Activity,
   ArrowUpRight,
-  ChevronRight,
 } from "lucide-react";
 import { motion } from "framer-motion";
 import { Navbar } from "@/components/Navbar";
@@ -274,33 +273,56 @@ function LeadStoryCard({ item }: { item: NewsItem }) {
   );
 }
 
-function PulsePanel({ item }: { item: NewsItem }) {
+function FeatureGridCard({ item, index }: { item: NewsItem; index: number }) {
+  const fallbackImage = pickFallbackImage(item, index + 20);
   const meta = categoryMeta[item.category];
+  const badgeClass = sourceBadgeColors[item.source] ?? "bg-slate-800 text-slate-300 border-slate-700";
 
   return (
     <motion.a
       href={item.link}
       target="_blank"
       rel="noopener noreferrer"
-      initial={{ opacity: 0, x: 12 }}
-      animate={{ opacity: 1, x: 0 }}
-      transition={{ duration: 0.35 }}
-      className="group block rounded-2xl border border-slate-800 bg-slate-900/80 p-5 transition-all hover:-translate-y-0.5 hover:border-slate-700 hover:bg-slate-900"
+      initial={{ opacity: 0, y: 14 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.28, delay: Math.min(index * 0.03, 0.18) }}
+      className="group overflow-hidden rounded-3xl border border-slate-800 bg-slate-900/80 shadow-[0_0_0_1px_rgba(255,255,255,0.02)] transition-all hover:-translate-y-1 hover:border-slate-700 hover:shadow-2xl"
     >
-      <div className="mb-3 flex items-center justify-between gap-3">
-        <span className={`inline-flex items-center gap-2 rounded-full border px-3 py-1 text-[11px] font-bold uppercase tracking-[0.18em] ${meta.chip}`}>
-          {meta.icon}
-          {meta.label}
-        </span>
-        <span className="text-xs text-slate-500">{timeAgo(item.pubDate)}</span>
+      <div className="relative h-60 overflow-hidden bg-slate-800">
+        <img
+          src={item.thumbnail || fallbackImage}
+          alt={item.title}
+          className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+          onError={(e) => {
+            (e.target as HTMLImageElement).src = fallbackImage;
+          }}
+        />
+        <div className="absolute inset-0 bg-linear-to-t from-slate-950 via-slate-950/20 to-transparent" />
+        <div className="absolute left-4 top-4 flex flex-wrap gap-2">
+          <span className={`inline-flex items-center gap-2 rounded-full border px-3 py-1 text-[11px] font-bold uppercase tracking-[0.18em] ${meta.chip}`}>
+            {meta.icon}
+            {meta.label}
+          </span>
+          <span className={`rounded-full border px-3 py-1 text-[11px] font-semibold ${badgeClass}`}>
+            {item.source}
+          </span>
+        </div>
       </div>
-      <h3 className="text-base font-bold leading-6 text-white transition-colors group-hover:text-blue-300">
-        {item.title}
-      </h3>
-      <p className="mt-2 line-clamp-2 text-sm leading-6 text-slate-400">{item.description}</p>
-      <div className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-slate-300 group-hover:text-white">
-        {item.source}
-        <ChevronRight className="h-4 w-4" />
+      <div className="space-y-3 p-5">
+        <div className="inline-flex items-center gap-1.5 text-xs text-slate-500">
+          <Clock className="h-3.5 w-3.5" />
+          {timeAgo(item.pubDate)}
+        </div>
+        <h3 className="text-xl font-black leading-tight text-white transition-colors group-hover:text-blue-300 md:text-2xl">
+          {item.title}
+        </h3>
+        <p className="line-clamp-3 text-sm leading-7 text-slate-300">
+          {item.description}
+        </p>
+        <div className="inline-flex items-center gap-2 text-sm font-semibold text-blue-300 transition-colors group-hover:text-blue-200">
+          Open full story
+          <ArrowUpRight className="h-4 w-4" />
+        </div>
       </div>
     </motion.a>
   );
@@ -398,11 +420,14 @@ export default function NewsPage() {
 
   const tabs = ["all", "markets", "crypto", "personal-finance"] as const;
   const filtered = activeTab === "all" ? news : news.filter((item) => item.category === activeTab);
+  const featuredStories = news.slice(0, 8);
+  const featuredStoryLinks = new Set(featuredStories.map((item) => item.link));
   const leadStory = filtered[0] ?? null;
-  const listStories = leadStory ? filtered.slice(1) : filtered;
-  const marketPulseItems = (["markets", "crypto", "personal-finance"] as const)
-    .map((category) => getCategoryLead(news, category))
-    .filter(Boolean) as NewsItem[];
+  const listStories = filtered.filter((item, index) => {
+    if (!item.link) return false;
+    if (index === 0 && item.link === leadStory?.link) return false;
+    return !featuredStoryLinks.has(item.link);
+  });
   const uniqueSources = new Set(news.map((item) => item.source)).size;
 
   return (
@@ -467,9 +492,23 @@ export default function NewsPage() {
 
       <section className="bg-slate-950 pb-8 pt-8">
         <div className="container mx-auto px-4 md:px-8">
-          <div className="grid gap-4 lg:grid-cols-3">
-            {marketPulseItems.map((item) => (
-              <PulsePanel key={item.link} item={item} />
+          <div className="mb-6 flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
+            <div>
+              <p className="text-xs font-bold uppercase tracking-[0.22em] text-slate-500">
+                Featured Coverage
+              </p>
+              <h2 className="mt-2 text-2xl font-black text-white md:text-3xl">
+                Big stories, richer visuals, more depth
+              </h2>
+            </div>
+            <p className="max-w-2xl text-sm leading-7 text-slate-400">
+              A broader center section with standout stories across markets, crypto, and personal finance before you drop into the faster headline list.
+            </p>
+          </div>
+
+          <div className="grid gap-6 lg:grid-cols-2">
+            {featuredStories.map((item, index) => (
+              <FeatureGridCard key={`${item.link}-feature-${index}`} item={item} index={index} />
             ))}
           </div>
         </div>
