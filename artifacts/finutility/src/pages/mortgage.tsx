@@ -9,6 +9,7 @@ import { AIInsightCard } from "@/components/AIInsightCard";
 import { ChartModule } from "@/components/ChartModule";
 import { FAQAccordion } from "@/components/FAQAccordion";
 import { ToolCard } from "@/components/ToolCard";
+import { EducationalContentBlock } from "@/components/EducationalContentBlock";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
@@ -16,6 +17,7 @@ import { calcMortgage } from "@/lib/calculators";
 import { generateMortgageInsight } from "@/lib/aiInsights";
 import { Search, Zap, Clock, ShieldCheck, Home, Briefcase, TrendingUp } from "lucide-react";
 import { parseNaturalLanguage } from "@/lib/nlParser";
+import { mortgageEducationContent } from "@/lib/educationContent";
 import { motion } from "framer-motion";
 
 export default function MortgageCalculator() {
@@ -346,6 +348,10 @@ export default function MortgageCalculator() {
               <a href="/loan-payment-calculator" className="text-xs font-semibold bg-slate-100 text-slate-700 hover:bg-slate-200 px-3 py-1.5 rounded-full transition-colors">Amortization Schedule</a>
               <a href="/savings-goal-calculator" className="text-xs font-semibold bg-slate-100 text-slate-700 hover:bg-slate-200 px-3 py-1.5 rounded-full transition-colors">Down Payment Savings</a>
             </div>
+          </div>
+
+          <div className="my-12">
+            <EducationalContentBlock {...mortgageEducationContent} theme="indigo" />
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 my-16">

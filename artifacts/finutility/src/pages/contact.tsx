@@ -6,6 +6,8 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
+import { EducationalContentBlock } from "@/components/EducationalContentBlock";
+import { contactEducationContent } from "@/lib/educationContent";
 
 export default function ContactPage() {
   const { toast } = useToast();
@@ -30,13 +32,15 @@ export default function ContactPage() {
       <Navbar />
 
       <main className="flex-1">
-        <div className="container mx-auto px-4 md:px-8 py-16 max-w-2xl">
-          <h1 className="text-4xl font-black text-foreground mb-4 text-center">Contact Us</h1>
-          <p className="text-lg text-muted-foreground text-center mb-12">
-            Have a question, feedback, or a feature request? We'd love to hear from you at support@omniweb.ai.
-          </p>
-          
-          <div className="bg-white p-8 rounded-xl border border-border shadow-sm">
+        <div className="container mx-auto px-4 md:px-8 py-16 max-w-5xl">
+          <div className="mx-auto max-w-2xl">
+            <h1 className="text-4xl font-black text-foreground mb-4 text-center">Contact Us</h1>
+            <p className="text-lg text-muted-foreground text-center mb-12">
+              Have a question, feedback, or a feature request? We’d love to hear from you at support@omniweb.ai.
+            </p>
+          </div>
+
+          <div className="mx-auto max-w-2xl bg-white p-8 rounded-xl border border-border shadow-sm">
             <div className="mb-6 rounded-lg bg-slate-50 border border-slate-200 px-4 py-3 text-sm text-slate-600">
               Prefer email? Reach us directly at <a href="mailto:support@omniweb.ai" className="font-semibold text-primary hover:underline">support@omniweb.ai</a>.
             </div>
@@ -57,6 +61,10 @@ export default function ContactPage() {
                 {isSubmitting ? "Sending..." : "Send Message"}
               </Button>
             </form>
+          </div>
+
+          <div className="mt-16">
+            <EducationalContentBlock {...contactEducationContent} theme="blue" />
           </div>
         </div>
       </main>

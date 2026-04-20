@@ -8,6 +8,7 @@ import { ResultCard } from "@/components/ResultCard";
 import { AIInsightCard } from "@/components/AIInsightCard";
 import { FAQAccordion } from "@/components/FAQAccordion";
 import { ToolCard } from "@/components/ToolCard";
+import { EducationalContentBlock } from "@/components/EducationalContentBlock";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
@@ -16,6 +17,7 @@ import { MOCK_RATES } from "@/lib/calculators";
 import { generateCurrencyInsight } from "@/lib/aiInsights";
 import { Search, ArrowRightLeft, Zap, Clock, ShieldCheck, DollarSign, Bitcoin, TrendingUp } from "lucide-react";
 import { parseNaturalLanguage } from "@/lib/nlParser";
+import { currencyEducationContent } from "@/lib/educationContent";
 import { motion } from "framer-motion";
 
 export default function CurrencyConverter() {
@@ -239,6 +241,10 @@ export default function CurrencyConverter() {
               <span className="text-sm font-medium text-slate-500 flex items-center mr-2">Related tools:</span>
               <a href="/crypto-profit-calculator" className="text-xs font-semibold bg-slate-100 text-slate-700 hover:bg-slate-200 px-3 py-1.5 rounded-full transition-colors">Crypto Profit</a>
             </div>
+          </div>
+
+          <div className="my-12">
+            <EducationalContentBlock {...currencyEducationContent} theme="blue" />
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 my-16">

@@ -7,12 +7,14 @@ import { AdPlaceholder } from "@/components/AdPlaceholder";
 import { AIBar } from "@/components/AIBar";
 import { ToolCard } from "@/components/ToolCard";
 import { FAQAccordion } from "@/components/FAQAccordion";
+import { EducationalContentBlock } from "@/components/EducationalContentBlock";
 import { TrendingUp, PiggyBank, Calculator, PlayCircle, ShieldCheck, DollarSign, Search, ArrowRight, CheckCircle2 } from "lucide-react";
 import { Link } from "wouter";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { parseNaturalLanguage } from "@/lib/nlParser";
+import { financeEducationContent } from "@/lib/educationContent";
 import heroBg from "@assets/Landing41.jpeg";
 import articleBg from "@assets/Landing39.jpeg";
 import toolCompound from "@assets/Landing41.jpeg";
@@ -143,6 +145,12 @@ export default function FinanceCategory() {
                 <ToolCard title="Currency Converter" description="Check live exchange rates and convert between over 20 global currencies." href="/currency-converter" icon={<DollarSign className="h-7 w-7" />} backgroundImage={toolCurrency} titleGradient="from-cyan-300 to-sky-300" />
               </motion.div>
             </motion.div>
+          </div>
+        </section>
+
+        <section className="bg-slate-50 py-20">
+          <div className="container mx-auto px-4 md:px-8">
+            <EducationalContentBlock {...financeEducationContent} theme="emerald" />
           </div>
         </section>
 

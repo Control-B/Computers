@@ -4,22 +4,22 @@ import { useLocation } from "wouter";
 
 const pageContent = {
   "/about": {
-    title: "About freetawn",
+    title: "About Freetawn",
     intro:
-      "freetawn is a financial education and calculator platform built to help everyday users understand money decisions with more confidence.",
+      "Freetawn is a financial education and calculator platform built to help everyday users understand money decisions with more confidence.",
     sections: [
       {
         heading: "What the site does",
         paragraphs: [
-          "freetawn combines practical calculators with plain-English financial guides. The goal is to help users estimate outcomes, understand the assumptions behind those numbers, and make more informed decisions about saving, debt, home buying, and crypto-related calculations.",
-          "The platform is designed for people who want quick tools without sacrificing clarity. Instead of treating finance like a black box, freetawn aims to show the calculation and the concept side by side.",
+          "Freetawn combines practical calculators with plain-English financial guides. The goal is to help users estimate outcomes, understand the assumptions behind those numbers, and make more informed decisions about saving, debt, home buying, and crypto-related calculations.",
+          "The platform is designed for people who want quick tools without sacrificing clarity. Instead of treating finance like a black box, Freetawn aims to show the calculation and the concept side by side.",
         ],
       },
       {
         heading: "Who the site is for",
         paragraphs: [
           "The site is for everyday users, first-time borrowers, savers, side-hustlers, and anyone comparing real-world financial tradeoffs. It is especially useful for people who want to model scenarios quickly before speaking with a lender, advisor, or tax professional.",
-          "freetawn is educational by design. It is not a bank, lender, brokerage, or registered investment advisor.",
+          "Freetawn is educational by design. It is not a bank, lender, brokerage, or registered investment advisor.",
         ],
       },
       {
@@ -34,19 +34,19 @@ const pageContent = {
   "/privacy-policy": {
     title: "Privacy Policy",
     intro:
-      "This Privacy Policy explains what information freetawn may collect, how it is used, and how the site is designed to limit unnecessary collection of personal financial data.",
+      "This Privacy Policy explains what information Freetawn may collect, how it is used, and how the site is designed to limit unnecessary collection of personal financial data.",
     sections: [
       {
         heading: "Calculator inputs",
         paragraphs: [
-          "freetawn is built to keep calculator usage privacy-first. Financial inputs entered into calculators are processed locally in your browser unless a feature clearly states otherwise. We do not ask users to create accounts in order to access core tools.",
+          "Freetawn is built to keep calculator usage privacy-first. Financial inputs entered into calculators are processed locally in your browser unless a feature clearly states otherwise. We do not ask users to create accounts in order to access core tools.",
           "Because the tools are browser-based, users should still avoid entering sensitive personal identifiers such as account numbers, social security numbers, or full legal documents into any field on the site.",
         ],
       },
       {
         heading: "Analytics, cookies, and advertising",
         paragraphs: [
-          "Like many websites, freetawn may use basic analytics, log data, and cookies to understand page performance, improve usability, and support advertising or measurement tools. These may include page visits, browser type, device information, and referral data.",
+          "Like many websites, Freetawn may use basic analytics, log data, and cookies to understand page performance, improve usability, and support advertising or measurement tools. These may include page visits, browser type, device information, and referral data.",
           "If advertising services such as Google AdSense are used, third-party vendors may use cookies to serve ads based on prior visits to this and other sites, subject to their own policies and controls.",
         ],
       },
@@ -62,19 +62,19 @@ const pageContent = {
   "/terms-of-use": {
     title: "Terms of Use",
     intro:
-      "By accessing freetawn, you agree to use the site in a lawful manner and understand that the calculators and guides are provided for educational and informational purposes only.",
+      "By accessing Freetawn, you agree to use the site in a lawful manner and understand that the calculators and guides are provided for educational and informational purposes only.",
     sections: [
       {
         heading: "Permitted use",
         paragraphs: [
-          "You may use freetawn for personal, educational, and general informational purposes. You may not misuse the site by attempting to disrupt service, scrape protected content at scale, or use the platform for fraudulent or unlawful activity.",
+          "You may use Freetawn for personal, educational, and general informational purposes. You may not misuse the site by attempting to disrupt service, scrape protected content at scale, or use the platform for fraudulent or unlawful activity.",
           "We reserve the right to limit access or modify site functionality at any time in order to protect service stability, content quality, or compliance obligations.",
         ],
       },
       {
         heading: "No professional relationship",
         paragraphs: [
-          "Use of freetawn does not create a financial-advisor, tax-advisor, legal-advisor, fiduciary, lender, or client relationship. The site does not provide individualized recommendations.",
+          "Use of Freetawn does not create a financial-advisor, tax-advisor, legal-advisor, fiduciary, lender, or client relationship. The site does not provide individualized recommendations.",
           "Users remain responsible for evaluating whether any calculation or article is appropriate for their own circumstances.",
         ],
       },
@@ -82,7 +82,7 @@ const pageContent = {
         heading: "Content and limitation of liability",
         paragraphs: [
           "We strive to keep tools and articles useful, but we do not guarantee that every figure, assumption, feed, or example will always be complete, current, or error-free. Financial conditions and provider terms change over time.",
-          "To the fullest extent permitted by law, freetawn is not liable for losses or decisions made in reliance on site content, calculator outputs, or third-party information displayed on the platform.",
+          "To the fullest extent permitted by law, Freetawn is not liable for losses or decisions made in reliance on site content, calculator outputs, or third-party information displayed on the platform.",
         ],
       },
     ],
@@ -90,7 +90,7 @@ const pageContent = {
   "/disclaimer": {
     title: "Disclaimer",
     intro:
-      "The calculators, guides, and market-related content on freetawn are for educational and informational purposes only and should not be treated as financial, legal, tax, or investment advice.",
+      "The calculators, guides, and market-related content on Freetawn are for educational and informational purposes only and should not be treated as financial, legal, tax, or investment advice.",
     sections: [
       {
         heading: "Educational use only",
@@ -109,7 +109,7 @@ const pageContent = {
       {
         heading: "Third-party content and feeds",
         paragraphs: [
-          "Some areas of the site may reference or display third-party data, feeds, or external content. freetawn does not produce or control all third-party material and cannot guarantee its completeness or accuracy.",
+          "Some areas of the site may reference or display third-party data, feeds, or external content. Freetawn does not produce or control all third-party material and cannot guarantee its completeness or accuracy.",
           "Always consult a qualified financial professional, lender, tax advisor, or attorney before making major financial decisions.",
         ],
       },

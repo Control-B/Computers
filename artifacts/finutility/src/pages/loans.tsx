@@ -7,12 +7,14 @@ import { AdPlaceholder } from "@/components/AdPlaceholder";
 import { AIBar } from "@/components/AIBar";
 import { ToolCard } from "@/components/ToolCard";
 import { FAQAccordion } from "@/components/FAQAccordion";
+import { EducationalContentBlock } from "@/components/EducationalContentBlock";
 import { Home, Briefcase, PlayCircle, ShieldCheck, Search, ArrowRight, TrendingUp, CheckCircle2 } from "lucide-react";
 import { Link } from "wouter";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { parseNaturalLanguage } from "@/lib/nlParser";
+import { loansEducationContent } from "@/lib/educationContent";
 import heroBg from "@assets/Landing65.jpeg";
 import articleBg from "@assets/Landing67.jpeg";
 import toolMortgage from "@assets/Landing37.jpeg";
@@ -139,6 +141,12 @@ export default function LoansCategory() {
                 <ToolCard title="Compound Interest" description="See how interest compounds on your loan or savings over time and plan your repayment strategy." href="/compound-interest-calculator" icon={<TrendingUp className="h-7 w-7" />} backgroundImage={slide3} titleGradient="from-emerald-300 to-teal-300" />
               </motion.div>
             </motion.div>
+          </div>
+        </section>
+
+        <section className="bg-slate-50 py-20">
+          <div className="container mx-auto px-4 md:px-8">
+            <EducationalContentBlock {...loansEducationContent} theme="indigo" />
           </div>
         </section>
 

@@ -8,6 +8,7 @@ import { ResultCard } from "@/components/ResultCard";
 import { AIInsightCard } from "@/components/AIInsightCard";
 import { FAQAccordion } from "@/components/FAQAccordion";
 import { ToolCard } from "@/components/ToolCard";
+import { EducationalContentBlock } from "@/components/EducationalContentBlock";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
@@ -15,6 +16,7 @@ import { calcCryptoProfit } from "@/lib/calculators";
 import { generateCryptoInsight } from "@/lib/aiInsights";
 import { Search, Zap, Clock, ShieldCheck, Bitcoin, DollarSign } from "lucide-react";
 import { parseNaturalLanguage } from "@/lib/nlParser";
+import { cryptoProfitEducationContent } from "@/lib/educationContent";
 import { motion } from "framer-motion";
 
 export default function CryptoProfitCalculator() {
@@ -252,6 +254,10 @@ export default function CryptoProfitCalculator() {
               <span className="text-sm font-medium text-slate-500 flex items-center mr-2">Related tools:</span>
               <a href="/currency-converter" className="text-xs font-semibold bg-slate-100 text-slate-700 hover:bg-slate-200 px-3 py-1.5 rounded-full transition-colors">Currency Converter</a>
             </div>
+          </div>
+
+          <div className="my-12">
+            <EducationalContentBlock {...cryptoProfitEducationContent} theme="fuchsia" />
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 my-16">

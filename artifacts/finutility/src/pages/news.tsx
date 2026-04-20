@@ -15,7 +15,9 @@ import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { AdPlaceholder } from "@/components/AdPlaceholder";
 import { AIBar } from "@/components/AIBar";
+import { EducationalContentBlock } from "@/components/EducationalContentBlock";
 import { MarketTickerTape } from "@/components/MarketTickerTape";
+import { newsEducationContent } from "@/lib/educationContent";
 import {
   fetchAllNews,
   clearNewsCache,
@@ -24,20 +26,64 @@ import {
   type NewsCategory,
 } from "@/lib/newsService";
 import heroBg from "@assets/Landing42.jpeg";
-import fallbackMarkets1 from "@assets/Landing39.jpeg";
-import fallbackMarkets2 from "@assets/Landing42.jpeg";
-import fallbackMarkets3 from "@assets/Landing48.jpeg";
-import fallbackMarkets4 from "@assets/Landing37.jpeg";
-import fallbackMarkets5 from "@assets/Landing67.jpeg";
-import fallbackCrypto1 from "@assets/Crypto3.jpeg";
-import fallbackCrypto2 from "@assets/Landing49.jpeg";
-import fallbackCrypto3 from "@assets/Landing14.jpeg";
-import fallbackCrypto4 from "@assets/Landing22.jpeg";
-import fallbackPersonalFinance1 from "@assets/Landing41.jpeg";
-import fallbackPersonalFinance2 from "@assets/Landing47.jpeg";
-import fallbackPersonalFinance3 from "@assets/Landing62.jpeg";
-import fallbackPersonalFinance4 from "@assets/Landing66.jpeg";
-import fallbackPersonalFinance5 from "@assets/Landing65.jpeg";
+import newsImage1 from "@assets/Landing39.jpeg";
+import newsImage2 from "@assets/Landing48.jpeg";
+import newsImage3 from "@assets/Landing67.jpeg";
+import newsImage4 from "@assets/Landing37.jpeg";
+import newsImage5 from "@assets/Landing41.jpeg";
+import newsImage6 from "@assets/Landing47.jpeg";
+import newsImage7 from "@assets/Landing62.jpeg";
+import newsImage8 from "@assets/Landing66.jpeg";
+import newsImage9 from "@assets/Landing65.jpeg";
+import newsImage10 from "@assets/Landing49.jpeg";
+import newsImage11 from "@assets/Landing14.jpeg";
+import newsImage12 from "@assets/Landing22.jpeg";
+import newsImage13 from "@assets/Crypto3.jpeg";
+import newsImage14 from "@assets/Landing61.jpeg";
+import newsImage15 from "@assets/Landing36.jpeg";
+import newsImage16 from "@assets/Landing60.jpeg";
+import newsImage17 from "@assets/Landing50.jpeg";
+import newsImage18 from "@assets/Landing38.jpeg";
+import { ShieldCheck, Eye, CircleAlert } from "lucide-react";
+
+const newsCardImages = [
+  newsImage1,
+  newsImage2,
+  newsImage3,
+  newsImage4,
+  newsImage5,
+  newsImage6,
+  newsImage7,
+  newsImage8,
+  newsImage9,
+  newsImage10,
+  newsImage11,
+  newsImage12,
+  newsImage13,
+  newsImage14,
+  newsImage15,
+  newsImage16,
+  newsImage17,
+  newsImage18,
+];
+
+const newsTrustHighlights = [
+  {
+    title: "Third-party sourcing",
+    description: "Headlines come from external feeds and are presented for educational awareness, not as direct trading instructions.",
+    icon: Eye,
+  },
+  {
+    title: "No endorsement",
+    description: "Coverage of an article, market move, or asset should not be interpreted as Freetawn recommending a purchase, sale, or strategy.",
+    icon: CircleAlert,
+  },
+  {
+    title: "Context-first reading",
+    description: "Readers are encouraged to verify details, compare sources, and pair market coverage with calculators before acting on any scenario.",
+    icon: ShieldCheck,
+  },
+];
 
 function timeAgo(dateStr: string): string {
   const diff = Date.now() - new Date(dateStr).getTime();
@@ -82,74 +128,6 @@ const categoryMeta: Record<
   },
 };
 
-const sourceFallbacks: Partial<Record<string, string[]>> = {
-  "BBC Business": [fallbackMarkets2, fallbackMarkets4, fallbackMarkets1],
-  "The Guardian": [fallbackMarkets1, fallbackMarkets3, fallbackMarkets4],
-  MarketWatch: [fallbackMarkets4, fallbackMarkets1, fallbackMarkets3],
-  CNBC: [fallbackMarkets3, fallbackMarkets2, fallbackMarkets4],
-  CoinDesk: [fallbackCrypto1, fallbackCrypto2, fallbackCrypto4],
-  CoinTelegraph: [fallbackCrypto2, fallbackCrypto3, fallbackCrypto1],
-  Decrypt: [fallbackCrypto4, fallbackCrypto1, fallbackCrypto3],
-  NerdWallet: [fallbackPersonalFinance1, fallbackPersonalFinance4, fallbackPersonalFinance2],
-  "CNBC Personal Finance": [fallbackPersonalFinance4, fallbackPersonalFinance3, fallbackPersonalFinance1],
-};
-
-const categoryFallbacks: Record<NewsCategory, string[]> = {
-  markets: [fallbackMarkets1, fallbackMarkets2, fallbackMarkets3, fallbackMarkets4, fallbackMarkets5],
-  crypto: [fallbackCrypto1, fallbackCrypto2, fallbackCrypto3, fallbackCrypto4],
-  "personal-finance": [fallbackPersonalFinance1, fallbackPersonalFinance2, fallbackPersonalFinance3, fallbackPersonalFinance4, fallbackPersonalFinance5],
-};
-
-type FallbackTopic =
-  | "interest-rates"
-  | "retirement"
-  | "housing"
-  | "markets-outlook"
-  | "consumer-money"
-  | "crypto-markets"
-  | "crypto-policy";
-
-const topicKeywordMap: Array<{ topic: FallbackTopic; keywords: string[] }> = [
-  {
-    topic: "interest-rates",
-    keywords: ["rate", "rates", "fed", "inflation", "yield", "treasury", "bond", "apr", "apy"],
-  },
-  {
-    topic: "retirement",
-    keywords: ["retire", "retirement", "401k", "ira", "pension", "nest egg", "social security"],
-  },
-  {
-    topic: "housing",
-    keywords: ["mortgage", "housing", "home", "house", "property", "real estate", "rent"],
-  },
-  {
-    topic: "markets-outlook",
-    keywords: ["stocks", "market", "earnings", "invest", "investor", "portfolio", "wall street", "economy"],
-  },
-  {
-    topic: "consumer-money",
-    keywords: ["budget", "saving", "savings", "spending", "debt", "credit", "cash", "millionaire"],
-  },
-  {
-    topic: "crypto-markets",
-    keywords: ["bitcoin", "crypto", "ethereum", "token", "blockchain", "solana", "etf"],
-  },
-  {
-    topic: "crypto-policy",
-    keywords: ["sec", "regulation", "regulator", "policy", "lawsuit", "compliance", "approval"],
-  },
-];
-
-const topicFallbacks: Record<FallbackTopic, string[]> = {
-  "interest-rates": [fallbackMarkets5, fallbackMarkets3, fallbackMarkets2],
-  retirement: [fallbackPersonalFinance3, fallbackPersonalFinance5, fallbackPersonalFinance2],
-  housing: [fallbackMarkets4, fallbackPersonalFinance4, fallbackPersonalFinance1],
-  "markets-outlook": [fallbackMarkets1, fallbackMarkets2, fallbackMarkets5],
-  "consumer-money": [fallbackPersonalFinance1, fallbackPersonalFinance4, fallbackPersonalFinance5],
-  "crypto-markets": [fallbackCrypto1, fallbackCrypto2, fallbackCrypto4],
-  "crypto-policy": [fallbackCrypto3, fallbackCrypto4, fallbackCrypto2],
-};
-
 const sourceBadgeColors: Record<string, string> = {
   "BBC Business": "bg-red-500/20 text-red-300 border-red-500/30",
   "The Guardian": "bg-orange-500/20 text-orange-300 border-orange-500/30",
@@ -160,34 +138,6 @@ const sourceBadgeColors: Record<string, string> = {
   CoinTelegraph: "bg-fuchsia-500/20 text-fuchsia-300 border-fuchsia-500/30",
   Decrypt: "bg-violet-500/20 text-violet-300 border-violet-500/30",
   NerdWallet: "bg-green-500/20 text-green-300 border-green-500/30",
-};
-
-function detectFallbackTopic(item: NewsItem): FallbackTopic | null {
-  const haystack = `${item.title} ${item.description}`.toLowerCase();
-
-  for (const { topic, keywords } of topicKeywordMap) {
-    if (keywords.some((keyword) => haystack.includes(keyword))) {
-      return topic;
-    }
-  }
-
-  return null;
-}
-
-function pickFallbackImage(item: NewsItem, index: number): string {
-  const topic = detectFallbackTopic(item);
-  const images =
-    sourceFallbacks[item.source] ??
-    (topic ? topicFallbacks[topic] : undefined) ??
-    categoryFallbacks[item.category];
-  const seed = `${item.source}:${item.title}:${index}`;
-  let hash = 0;
-
-  for (let currentIndex = 0; currentIndex < seed.length; currentIndex += 1) {
-    hash = (hash * 31 + seed.charCodeAt(currentIndex)) >>> 0;
-  }
-
-  return images[hash % images.length];
 }
 
 function NewsRowSkeleton() {
@@ -215,8 +165,7 @@ function StatTile({ label, value }: { label: string; value: string }) {
   );
 }
 
-function LeadStoryCard({ item }: { item: NewsItem }) {
-  const fallbackImage = pickFallbackImage(item, 0);
+function LeadStoryCard({ item, image }: { item: NewsItem; image: string }) {
   const meta = categoryMeta[item.category];
 
   return (
@@ -231,12 +180,9 @@ function LeadStoryCard({ item }: { item: NewsItem }) {
     >
       <div className="relative h-72 overflow-hidden bg-slate-800">
         <img
-          src={item.thumbnail || fallbackImage}
+          src={image}
           alt={item.title}
           className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-          onError={(e) => {
-            (e.target as HTMLImageElement).src = fallbackImage;
-          }}
         />
         <div className="absolute inset-0 bg-linear-to-t from-slate-950 via-slate-950/30 to-transparent" />
         <div className="absolute left-4 top-4">
@@ -273,8 +219,7 @@ function LeadStoryCard({ item }: { item: NewsItem }) {
   );
 }
 
-function FeatureGridCard({ item, index }: { item: NewsItem; index: number }) {
-  const fallbackImage = pickFallbackImage(item, index + 20);
+function FeatureGridCard({ item, index, image }: { item: NewsItem; index: number; image: string }) {
   const meta = categoryMeta[item.category];
   const badgeClass = sourceBadgeColors[item.source] ?? "bg-slate-800 text-slate-300 border-slate-700";
 
@@ -290,12 +235,9 @@ function FeatureGridCard({ item, index }: { item: NewsItem; index: number }) {
     >
       <div className="relative h-60 overflow-hidden bg-slate-800">
         <img
-          src={item.thumbnail || fallbackImage}
+          src={image}
           alt={item.title}
           className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-          onError={(e) => {
-            (e.target as HTMLImageElement).src = fallbackImage;
-          }}
         />
         <div className="absolute inset-0 bg-linear-to-t from-slate-950 via-slate-950/20 to-transparent" />
         <div className="absolute left-4 top-4 flex flex-wrap gap-2">
@@ -328,8 +270,7 @@ function FeatureGridCard({ item, index }: { item: NewsItem; index: number }) {
   );
 }
 
-function NewsListRow({ item, index }: { item: NewsItem; index: number }) {
-  const fallbackImage = pickFallbackImage(item, index + 1);
+function NewsListRow({ item, index, image }: { item: NewsItem; index: number; image: string }) {
   const meta = categoryMeta[item.category];
   const badgeClass = sourceBadgeColors[item.source] ?? "bg-slate-800 text-slate-300 border-slate-700";
 
@@ -345,12 +286,9 @@ function NewsListRow({ item, index }: { item: NewsItem; index: number }) {
     >
       <div className="hidden h-20 w-28 shrink-0 overflow-hidden rounded-xl border border-slate-800 bg-slate-800 sm:block">
         <img
-          src={item.thumbnail || fallbackImage}
+          src={image}
           alt={item.title}
           className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-          onError={(e) => {
-            (e.target as HTMLImageElement).src = fallbackImage;
-          }}
         />
       </div>
       <div className="min-w-0 flex-1">
@@ -382,8 +320,8 @@ function NewsListRow({ item, index }: { item: NewsItem; index: number }) {
   );
 }
 
-function getCategoryLead(news: NewsItem[], category: NewsCategory): NewsItem | null {
-  return news.find((item) => item.category === category) ?? null;
+function pairItemsWithImages<T>(items: T[], images: string[]) {
+  return items.slice(0, images.length).map((item, index) => ({ item, image: images[index] }));
 }
 
 export default function NewsPage() {
@@ -420,14 +358,17 @@ export default function NewsPage() {
 
   const tabs = ["all", "markets", "crypto", "personal-finance"] as const;
   const filtered = activeTab === "all" ? news : news.filter((item) => item.category === activeTab);
-  const featuredStories = news.slice(0, 8);
-  const featuredStoryLinks = new Set(featuredStories.map((item) => item.link));
-  const leadStory = filtered[0] ?? null;
-  const listStories = filtered.filter((item, index) => {
-    if (!item.link) return false;
-    if (index === 0 && item.link === leadStory?.link) return false;
-    return !featuredStoryLinks.has(item.link);
-  });
+  const featuredDisplay = pairItemsWithImages(news.slice(0, 8), newsCardImages);
+  const featuredStoryLinks = new Set(featuredDisplay.map(({ item }) => item.link));
+  const remainingImages = newsCardImages.slice(featuredDisplay.length);
+  const eligibleHeadlineStories = filtered.filter((item) => item.link && !featuredStoryLinks.has(item.link));
+  const leadDisplay = eligibleHeadlineStories[0] && remainingImages[0]
+    ? { item: eligibleHeadlineStories[0], image: remainingImages[0] }
+    : null;
+  const listDisplay = pairItemsWithImages(
+    eligibleHeadlineStories.slice(leadDisplay ? 1 : 0),
+    remainingImages.slice(leadDisplay ? 1 : 0),
+  );
   const uniqueSources = new Set(news.map((item) => item.source)).size;
 
   return (
@@ -507,8 +448,8 @@ export default function NewsPage() {
           </div>
 
           <div className="grid gap-6 lg:grid-cols-2">
-            {featuredStories.map((item, index) => (
-              <FeatureGridCard key={`${item.link}-feature-${index}`} item={item} index={index} />
+            {featuredDisplay.map(({ item, image }, index) => (
+              <FeatureGridCard key={`${item.link}-feature-${index}`} item={item} image={image} index={index} />
             ))}
           </div>
         </div>
@@ -604,11 +545,15 @@ export default function NewsPage() {
             <div className="rounded-3xl border border-slate-800 bg-slate-900/80 py-24 text-center text-slate-500">
               No articles found for this category yet.
             </div>
+          ) : !leadDisplay && listDisplay.length === 0 ? (
+            <div className="rounded-3xl border border-slate-800 bg-slate-900/80 py-24 text-center text-slate-500">
+              No unused local images remain for this section yet.
+            </div>
           ) : (
             <>
               <div className="grid gap-8 lg:grid-cols-[1.05fr_0.95fr]">
                 <div>
-                  {leadStory && <LeadStoryCard item={leadStory} />}
+                  {leadDisplay && <LeadStoryCard item={leadDisplay.item} image={leadDisplay.image} />}
                 </div>
                 <div className="overflow-hidden rounded-3xl border border-slate-800 bg-slate-900/80 shadow-[0_0_0_1px_rgba(255,255,255,0.02)]">
                   <div className="flex items-center justify-between border-b border-slate-800 px-4 py-4">
@@ -623,34 +568,65 @@ export default function NewsPage() {
                     </div>
                   </div>
                   <div>
-                    {listStories.slice(0, 8).map((item, index) => (
-                      <NewsListRow key={`${item.link}-${index}`} item={item} index={index} />
+                    {listDisplay.slice(0, 8).map(({ item, image }, index) => (
+                      <NewsListRow key={`${item.link}-${index}`} item={item} image={image} index={index} />
                     ))}
                   </div>
                 </div>
               </div>
 
-              {listStories.length > 8 && (
+              {listDisplay.length > 8 && (
                 <>
                   <div className="my-8">
                     <AdPlaceholder />
                   </div>
                   <div className="overflow-hidden rounded-3xl border border-slate-800 bg-slate-900/80 shadow-[0_0_0_1px_rgba(255,255,255,0.02)]">
-                    {listStories.slice(8).map((item, index) => (
-                      <NewsListRow key={`${item.link}-more-${index}`} item={item} index={index + 8} />
+                    {listDisplay.slice(8).map(({ item, image }, index) => (
+                      <NewsListRow key={`${item.link}-more-${index}`} item={item} image={image} index={index + 8} />
                     ))}
                   </div>
                 </>
               )}
             </>
           )}
+
+          <div className="mt-16">
+            <EducationalContentBlock {...newsEducationContent} theme="blue" />
+          </div>
+
+          <div className="mt-16 rounded-[2rem] border border-slate-800 bg-slate-900/80 p-8 md:p-10 shadow-[0_0_0_1px_rgba(255,255,255,0.02)]">
+            <div className="max-w-3xl">
+              <div className="text-xs font-bold uppercase tracking-[0.22em] text-blue-300">Trust and disclosure</div>
+              <h2 className="mt-4 text-3xl font-black tracking-tight text-white md:text-4xl">
+                Why this news page is framed around caution and context
+              </h2>
+              <p className="mt-4 text-base leading-8 text-slate-300 md:text-lg">
+                Freetawn surfaces financial headlines to help readers stay informed, but the page is intentionally structured around source labels, market context, and clear disclaimers so readers do not confuse information access with individualized advice.
+              </p>
+            </div>
+
+            <div className="mt-10 grid grid-cols-1 gap-6 md:grid-cols-3">
+              {newsTrustHighlights.map((item) => {
+                const Icon = item.icon;
+                return (
+                  <div key={item.title} className="rounded-3xl border border-slate-800 bg-slate-950/80 p-6">
+                    <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-blue-500/10 text-blue-300">
+                      <Icon className="h-6 w-6" />
+                    </div>
+                    <h3 className="text-xl font-black text-white">{item.title}</h3>
+                    <p className="mt-3 text-sm leading-7 text-slate-400 md:text-base">{item.description}</p>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
         </div>
       </section>
 
       <div className="bg-slate-950 px-4 pb-6">
         <div className="container mx-auto px-4 md:px-8">
           <p className="text-center text-[11px] italic text-slate-600">
-            News content is sourced from third-party RSS feeds and refreshed daily. Market tape data is provided via an external widget. freetawn does not produce, verify, or endorse any article or quote. This is not financial advice.
+            News content is sourced from third-party RSS feeds and refreshed daily. Market tape data is provided via an external widget. Freetawn does not produce, verify, or endorse any article or quote. This is not financial advice.
           </p>
         </div>
       </div>

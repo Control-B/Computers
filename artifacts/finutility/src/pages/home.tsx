@@ -11,7 +11,9 @@ import { AIBar } from "@/components/AIBar";
 import { ToolCard } from "@/components/ToolCard";
 import { CategoryCard } from "@/components/CategoryCard";
 import { FAQAccordion } from "@/components/FAQAccordion";
+import { EducationalContentBlock } from "@/components/EducationalContentBlock";
 import { parseNaturalLanguage } from "@/lib/nlParser";
+import { homeEducationContent } from "@/lib/educationContent";
 import { motion, type Variants } from "framer-motion";
 import heroDashboard from "@assets/Landing62.jpeg";
 import step1Image from "@assets/Landing47.jpeg";
@@ -263,13 +265,13 @@ export default function HomePage() {
                 </h2>
                 <div className="space-y-5 text-slate-600 leading-8 text-lg max-w-3xl">
                   <p>
-                    freetawn combines fast financial calculators with plain-English guides so users can do more than generate a number. Whether you are estimating a mortgage payment, testing a compound-interest scenario, planning a savings target, or reviewing a crypto trade, the goal is to help you understand the decision behind the math.
+                    Freetawn combines fast financial calculators with plain-English guides so users can do more than generate a number. Whether you are estimating a mortgage payment, testing a compound-interest scenario, planning a savings target, or reviewing a crypto trade, the goal is to help you understand the decision behind the math.
                   </p>
                   <p>
                     The platform covers core personal finance categories including savings, loans, home buying, currency conversion, and crypto profit analysis. Every tool is designed to be simple enough for beginners while still useful for comparing real-world scenarios with different assumptions, timelines, and contribution levels.
                   </p>
                   <p>
-                    Calculators are most valuable when they are paired with context. That is why freetawn also includes educational guides, FAQs, related tools, and practical tips that help users avoid common financial mistakes and make more confident decisions.
+                    Calculators are most valuable when they are paired with context. That is why Freetawn also includes educational guides, FAQs, related tools, and practical tips that help users avoid common financial mistakes and make more confident decisions.
                   </p>
                 </div>
               </div>
@@ -311,6 +313,12 @@ export default function HomePage() {
                 </div>
               </div>
             </div>
+          </div>
+        </section>
+
+        <section className="bg-slate-50 py-20">
+          <div className="container mx-auto px-4 md:px-8">
+            <EducationalContentBlock {...homeEducationContent} theme="blue" />
           </div>
         </section>
 

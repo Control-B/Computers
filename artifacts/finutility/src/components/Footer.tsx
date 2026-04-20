@@ -59,10 +59,10 @@ export function Footer() {
 
         <div className="mt-16 pt-8 border-t border-slate-800 flex flex-col items-center justify-center text-center">
           <p className="text-sm text-slate-400 mb-4">
-            © {new Date().getFullYear()} freetawn. All rights reserved.
+            © {new Date().getFullYear()} Freetawn. All rights reserved.
           </p>
           <p className="text-xs text-slate-500 max-w-4xl mx-auto leading-relaxed">
-            Disclaimer: The calculators and information provided on freetawn are for educational and informational purposes only. They do not constitute financial, legal, or tax advice. freetawn is not responsible for any financial decisions made based on these calculations. Always consult with a qualified professional before making significant financial commitments.
+            Disclaimer: The calculators and information provided on Freetawn are for educational and informational purposes only. They do not constitute financial, legal, or tax advice. Freetawn is not responsible for any financial decisions made based on these calculations. Always consult with a qualified professional before making significant financial commitments.
           </p>
         </div>
       </div>

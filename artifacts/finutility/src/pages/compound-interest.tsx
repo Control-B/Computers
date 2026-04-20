@@ -9,6 +9,7 @@ import { AIInsightCard } from "@/components/AIInsightCard";
 import { ChartModule } from "@/components/ChartModule";
 import { FAQAccordion } from "@/components/FAQAccordion";
 import { ToolCard } from "@/components/ToolCard";
+import { EducationalContentBlock } from "@/components/EducationalContentBlock";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
@@ -18,6 +19,7 @@ import { calcCompoundInterest } from "@/lib/calculators";
 import { generateCompoundInterestInsight } from "@/lib/aiInsights";
 import { Search, Zap, Clock, ShieldCheck, Home, Briefcase, PiggyBank } from "lucide-react";
 import { parseNaturalLanguage } from "@/lib/nlParser";
+import { compoundInterestEducationContent } from "@/lib/educationContent";
 import { motion } from "framer-motion";
 
 export default function CompoundInterestCalculator() {
@@ -276,6 +278,10 @@ export default function CompoundInterestCalculator() {
               <a href="/savings-goal-calculator" className="text-xs font-semibold bg-slate-100 text-slate-700 hover:bg-slate-200 px-3 py-1.5 rounded-full transition-colors">Savings Goal</a>
               <a href="/mortgage-calculator" className="text-xs font-semibold bg-slate-100 text-slate-700 hover:bg-slate-200 px-3 py-1.5 rounded-full transition-colors">Mortgage Calculator</a>
             </div>
+          </div>
+
+          <div className="my-12">
+            <EducationalContentBlock {...compoundInterestEducationContent} theme="blue" />
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 my-16">

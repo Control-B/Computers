@@ -7,12 +7,14 @@ import { AdPlaceholder } from "@/components/AdPlaceholder";
 import { AIBar } from "@/components/AIBar";
 import { ToolCard } from "@/components/ToolCard";
 import { FAQAccordion } from "@/components/FAQAccordion";
+import { EducationalContentBlock } from "@/components/EducationalContentBlock";
 import { Bitcoin, Calculator, PlayCircle, ShieldCheck, DollarSign, Search, ArrowRight, TrendingUp, CheckCircle2 } from "lucide-react";
 import { Link } from "wouter";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { parseNaturalLanguage } from "@/lib/nlParser";
+import { cryptoEducationContent } from "@/lib/educationContent";
 import heroBg from "@assets/Crypto3.jpeg";
 import articleBg from "@assets/Landing48.jpeg";
 import toolCrypto from "@assets/Crypto3.jpeg";
@@ -139,6 +141,12 @@ export default function CryptoCategory() {
                 <ToolCard title="Savings Goal" description="Set a crypto savings target and find out exactly how much to invest each month to get there." href="/savings-goal-calculator" icon={<Calculator className="h-7 w-7" />} backgroundImage={slide2} titleGradient="from-pink-300 to-fuchsia-300" />
               </motion.div>
             </motion.div>
+          </div>
+        </section>
+
+        <section className="bg-slate-50 py-20">
+          <div className="container mx-auto px-4 md:px-8">
+            <EducationalContentBlock {...cryptoEducationContent} theme="fuchsia" />
           </div>
         </section>
 
