@@ -1,4 +1,4 @@
-import { defineConfig } from "vite";
+import { defineConfig, type PluginOption } from "vite";
 import react from "@vitejs/plugin-react";
 import tailwindcss from "@tailwindcss/vite";
 import path from "path";
@@ -25,21 +25,18 @@ function resolvePort(command: "build" | "serve"): number {
   return port;
 }
 
-export default defineConfig(async ({ command }) => {
+const replitPlugins: PluginOption[] =
+  process.env.NODE_ENV !== "production" && process.env.REPL_ID !== undefined
+    ? [
+        (await import("@replit/vite-plugin-cartographer")).cartographer({
+          root: path.resolve(import.meta.dirname, ".."),
+        }),
+      ]
+    : [];
+
+export default defineConfig(({ command }) => {
   const basePath = process.env.BASE_PATH ?? "/";
   const port = resolvePort(command);
-
-  const replitPlugins =
-    process.env.NODE_ENV !== "production" &&
-    process.env.REPL_ID !== undefined
-      ? [
-          (
-            await import("@replit/vite-plugin-cartographer")
-          ).cartographer({
-            root: path.resolve(import.meta.dirname, ".."),
-          }),
-        ]
-      : [];
 
   return {
     base: basePath,
