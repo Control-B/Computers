@@ -61,7 +61,7 @@ export function Navbar() {
           <div className="flex h-8 w-8 items-center justify-center rounded-md bg-primary text-primary-foreground font-bold text-sm">
             <TrendingUp className="h-4 w-4" />
           </div>
-          <span className="text-xl font-bold text-white">freetawn.com</span>
+          <span className="text-xl font-bold text-white">freetawn</span>
         </Link>
 
         {/* Desktop Nav — centered */}

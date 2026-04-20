@@ -71,7 +71,7 @@ const sourceBadgeColors: Record<string, string> = {
   Reuters: "bg-orange-500/20 text-orange-300 border-orange-500/30",
   CoinDesk: "bg-yellow-500/20 text-yellow-300 border-yellow-500/30",
   CoinTelegraph: "bg-fuchsia-500/20 text-fuchsia-300 border-fuchsia-500/30",
-  Investopedia: "bg-green-500/20 text-green-300 border-green-500/30",
+  NerdWallet: "bg-green-500/20 text-green-300 border-green-500/30",
 };
 
 /* ─── skeleton card ────────────────────────────────────────────────────────── */
@@ -417,7 +417,7 @@ export default function NewsPage() {
         <div className="container mx-auto px-4 md:px-8">
           <p className="text-[11px] text-slate-600 text-center italic">
             News content is sourced from third-party RSS feeds and updated once
-            daily. freetawn.com does not produce, verify, or endorse any
+            daily. freetawn does not produce, verify, or endorse any
             articles. This is not financial advice.
           </p>
         </div>

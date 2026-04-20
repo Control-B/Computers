@@ -1,6 +1,6 @@
 kind = "web"
 previewPath = "/"
-title = "freetawn.com"
+title = "freetawn"
 version = "1.0.0"
 id = "artifacts/finutility"
 router = "path"

@@ -1,5 +1,6 @@
 import { useState, useEffect, useMemo } from "react";
 import { BarChart2, ArrowUp, AlertCircle, TrendingUp, ExternalLink } from "lucide-react";
+import { AnimatePresence, motion } from "framer-motion";
 import { useLocation } from "wouter";
 import { parseNaturalLanguage } from "@/lib/nlParser";
 import { getInsight, CARD_POOLS, type Insight } from "@/lib/insightEngine";
@@ -24,11 +25,12 @@ export function AIBar({
 
   /* ── Rotating card indices ─────────────────────────────────────────── */
   const [cardIndices, setCardIndices] = useState([0, 0, 0, 0, 0, 0]);
-  const [fadingCard, setFadingCard] = useState<number | null>(null);
 
   const cardPools = useMemo(() => {
     if (suggestions?.length) {
-      return Array.from({ length: 6 }, (_, i) => [suggestions[i % suggestions.length]]);
+      return Array.from({ length: 6 }, (_, offset) =>
+        suggestions.map((_, index) => suggestions[(index + offset) % suggestions.length]),
+      );
     }
     return CARD_POOLS;
   }, [suggestions]);
@@ -38,18 +40,14 @@ export function AIBar({
     const interval = setInterval(() => {
       const idx = turn % 6;
       turn++;
-      setFadingCard(idx);
-      setTimeout(() => {
-        setCardIndices((prev) => {
-          const next = [...prev];
-          next[idx] = (prev[idx] + 1) % CARD_POOLS[idx].length;
-          return next;
-        });
-        setFadingCard(null);
-      }, 280);
+      setCardIndices((prev) => {
+        const next = [...prev];
+        next[idx] = (prev[idx] + 1) % cardPools[idx].length;
+        return next;
+      });
     }, 2200);
     return () => clearInterval(interval);
-  }, []);
+  }, [cardPools]);
 
   /* ── Submit ────────────────────────────────────────────────────────── */
   const handleSubmit = (q: string) => {
@@ -119,11 +117,19 @@ export function AIBar({
               className="h-20 flex items-center gap-2.5 text-left bg-zinc-800 hover:bg-violet-950/60 border border-zinc-600 hover:border-violet-500/60 rounded-xl px-4 py-3 transition-all group"
             >
               <span className="text-zinc-500 group-hover:text-violet-400 transition-colors text-lg leading-none shrink-0">+</span>
-              <span
-                className="text-xs text-zinc-400 group-hover:text-violet-200 transition-all leading-snug line-clamp-2"
-                style={{ opacity: fadingCard === i ? 0 : 1, transition: "opacity 0.28s ease" }}
-              >
-                {pool[cardIndices[i]]}
+              <span className="relative block min-h-[2.5rem] overflow-hidden text-xs text-zinc-400 group-hover:text-violet-200 leading-snug flex-1">
+                <AnimatePresence mode="wait" initial={false}>
+                  <motion.span
+                    key={`${i}-${pool[cardIndices[i]]}`}
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -10 }}
+                    transition={{ duration: 0.25, ease: "easeOut" }}
+                    className="absolute inset-0 line-clamp-2"
+                  >
+                    {pool[cardIndices[i]]}
+                  </motion.span>
+                </AnimatePresence>
               </span>
             </button>
           ))}

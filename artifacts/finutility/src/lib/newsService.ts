@@ -5,9 +5,8 @@
  *
  * Strategy (per feed):
  *   1. Return localStorage cache if < 24 h old.
- *   2. Try api.rss2json.com  — returns JSON, handles CORS.
- *   3. If that fails, try corsproxy.io  — returns raw XML, parsed with DOMParser.
- *   4. If both fail for a feed, that feed is silently skipped.
+ *   2. Try api.rss2json.com  — returns JSON, handles CORS reliably.
+ *   3. If a feed fails, it is silently skipped.
  */
 
 const CACHE_TTL = 24 * 60 * 60 * 1000; // 24 hours in ms
@@ -71,8 +70,8 @@ const FEEDS: FeedConfig[] = [
   },
   // Personal Finance
   {
-    url: "https://www.investopedia.com/feedbuilder/feed/getfeed/?feedName=rss_headline",
-    source: "Investopedia",
+    url: "https://www.nerdwallet.com/blog/feed/",
+    source: "NerdWallet",
     category: "personal-finance",
   },
   {
@@ -164,11 +163,9 @@ function parseXmlItems(xml: string, config: FeedConfig): NewsItem[] {
 
 /* ── Fetch strategies ───────────────────────────────────────────────────── */
 
-/** Strategy 1: rss2json.com converts RSS → JSON and handles CORS */
+/** rss2json.com converts RSS → JSON and handles CORS */
 async function viaRss2Json(config: FeedConfig): Promise<NewsItem[]> {
-  const url = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(
-    config.url
-  )}&count=12`;
+  const url = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(config.url)}`;
 
   const res = await fetch(url, { signal: AbortSignal.timeout(9000) });
   if (!res.ok) throw new Error(`rss2json HTTP ${res.status}`);
@@ -177,7 +174,7 @@ async function viaRss2Json(config: FeedConfig): Promise<NewsItem[]> {
   if (json.status !== "ok" || !Array.isArray(json.items))
     throw new Error("rss2json returned non-ok status");
 
-  return json.items.map(
+  return json.items.slice(0, 12).map(
     (item: Record<string, unknown>): NewsItem => ({
       title: stripHtml(String(item.title ?? "")),
       link: String(item.link ?? ""),
@@ -197,15 +194,6 @@ async function viaRss2Json(config: FeedConfig): Promise<NewsItem[]> {
   );
 }
 
-/** Strategy 2: corsproxy.io as CORS proxy → raw XML → DOMParser */
-async function viaProxy(config: FeedConfig): Promise<NewsItem[]> {
-  const proxyUrl = `https://corsproxy.io/?${encodeURIComponent(config.url)}`;
-  const res = await fetch(proxyUrl, { signal: AbortSignal.timeout(9000) });
-  if (!res.ok) throw new Error(`corsproxy HTTP ${res.status}`);
-  const xml = await res.text();
-  return parseXmlItems(xml, config);
-}
-
 /* ── Per-feed fetch with caching ─────────────────────────────────────────── */
 
 async function fetchFeed(config: FeedConfig): Promise<NewsItem[]> {
@@ -222,16 +210,12 @@ async function fetchFeed(config: FeedConfig): Promise<NewsItem[]> {
     /* corrupt — refetch */
   }
 
-  // Try both strategies
+  // Try rss2json
   let data: NewsItem[] = [];
   try {
     data = await viaRss2Json(config);
   } catch {
-    try {
-      data = await viaProxy(config);
-    } catch {
-      return []; // both failed — skip this feed silently
-    }
+    return [];
   }
 
   // Cache successful result
