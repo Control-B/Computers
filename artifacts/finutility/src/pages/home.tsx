@@ -12,8 +12,10 @@ import { ToolCard } from "@/components/ToolCard";
 import { CategoryCard } from "@/components/CategoryCard";
 import { FAQAccordion } from "@/components/FAQAccordion";
 import { EducationalContentBlock } from "@/components/EducationalContentBlock";
+import { TrustSection } from "@/components/TrustSection";
 import { parseNaturalLanguage } from "@/lib/nlParser";
 import { homeEducationContent } from "@/lib/educationContent";
+import { homeTrustContent } from "@/lib/trustContent";
 import { motion, type Variants } from "framer-motion";
 import heroDashboard from "@assets/Landing62.jpeg";
 import step1Image from "@assets/Landing47.jpeg";
@@ -316,6 +318,12 @@ export default function HomePage() {
           </div>
         </section>
 
+        <div className="bg-slate-50 px-4 pt-10 pb-0">
+          <div className="container mx-auto px-4 md:px-8">
+            <AdPlaceholder />
+          </div>
+        </div>
+
         <section className="bg-slate-50 py-20">
           <div className="container mx-auto px-4 md:px-8">
             <EducationalContentBlock {...homeEducationContent} theme="blue" />
@@ -351,13 +359,6 @@ export default function HomePage() {
             </motion.div>
           </div>
         </section>
-
-        {/* Ad above Featured Calculators */}
-        <div className="bg-white px-4 pt-4 pb-0">
-          <div className="container mx-auto px-4 md:px-8">
-            <AdPlaceholder />
-          </div>
-        </div>
 
         {/* Section 3: Featured Calculators */}
         <section className="py-24 bg-white">
@@ -752,6 +753,8 @@ export default function HomePage() {
             </form>
           </div>
         </section>
+
+        <TrustSection {...homeTrustContent} />
       </main>
 
       <Footer />

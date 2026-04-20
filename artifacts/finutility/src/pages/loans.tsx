@@ -8,6 +8,7 @@ import { AIBar } from "@/components/AIBar";
 import { ToolCard } from "@/components/ToolCard";
 import { FAQAccordion } from "@/components/FAQAccordion";
 import { EducationalContentBlock } from "@/components/EducationalContentBlock";
+import { TrustSection } from "@/components/TrustSection";
 import { Home, Briefcase, PlayCircle, ShieldCheck, Search, ArrowRight, TrendingUp, CheckCircle2 } from "lucide-react";
 import { Link } from "wouter";
 import { motion } from "framer-motion";
@@ -15,6 +16,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { parseNaturalLanguage } from "@/lib/nlParser";
 import { loansEducationContent } from "@/lib/educationContent";
+import { loansTrustContent } from "@/lib/trustContent";
 import heroBg from "@assets/Landing65.jpeg";
 import articleBg from "@assets/Landing67.jpeg";
 import toolMortgage from "@assets/Landing37.jpeg";
@@ -119,13 +121,6 @@ export default function LoansCategory() {
           </div>
         </section>
 
-        {/* Ad */}
-        <div className="bg-white px-4 pt-4 pb-4">
-          <div className="container mx-auto px-4 md:px-8">
-            <AdPlaceholder />
-          </div>
-        </div>
-
         {/* Tool Cards */}
         <section className="bg-white py-20">
           <div className="container mx-auto px-4 md:px-8">
@@ -143,6 +138,12 @@ export default function LoansCategory() {
             </motion.div>
           </div>
         </section>
+
+        <div className="bg-slate-50 px-4 pt-10 pb-0">
+          <div className="container mx-auto px-4 md:px-8">
+            <AdPlaceholder />
+          </div>
+        </div>
 
         <section className="bg-slate-50 py-20">
           <div className="container mx-auto px-4 md:px-8">
@@ -210,7 +211,7 @@ export default function LoansCategory() {
               <div className="lg:col-span-5 space-y-10">
                 <div>
                   <h2 className="text-2xl font-black text-white mb-6">Loan FAQ</h2>
-                  <FAQAccordion items={[
+                  <FAQAccordion tone="inverse" items={[
                     { question: "What is APR vs Interest Rate?", answer: "The interest rate is the cost of borrowing the principal. APR includes the interest rate plus any lender fees, giving a truer picture of total cost." },
                     { question: "How does a down payment affect my loan?", answer: "A larger down payment reduces the amount you borrow, lowers your monthly payment, and reduces total interest. For mortgages it can eliminate PMI." },
                     { question: "What does amortized mean?", answer: "Amortization spreads a loan into fixed payments over time. Early payments are mostly interest; later payments shift toward principal." }
@@ -280,6 +281,8 @@ export default function LoansCategory() {
             <AdPlaceholder />
           </div>
         </div>
+
+        <TrustSection {...loansTrustContent} />
       </main>
       <Footer />
     </div>

@@ -1,10 +1,12 @@
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { AdPlaceholder } from "@/components/AdPlaceholder";
+import { TrustSection } from "@/components/TrustSection";
 import { Link, useLocation } from "wouter";
 import { Button } from "@/components/ui/button";
 import { BookOpen, Clock3 } from "lucide-react";
 import { guideArticles, guidesBySlug } from "@/lib/guides";
+import { articleTrustContent } from "@/lib/trustContent";
 
 export default function ArticlePage() {
   const [pathname] = useLocation();
@@ -121,6 +123,8 @@ export default function ArticlePage() {
             </div>
           </section>
         </article>
+
+        <TrustSection {...articleTrustContent} />
       </main>
 
       <Footer />

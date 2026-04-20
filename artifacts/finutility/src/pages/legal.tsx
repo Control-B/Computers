@@ -1,6 +1,8 @@
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
+import { TrustSection } from "@/components/TrustSection";
 import { useLocation } from "wouter";
+import { legalTrustContent } from "@/lib/trustContent";
 
 const pageContent = {
   "/about": {
@@ -145,6 +147,8 @@ export default function LegalPage() {
             </p>
           </div>
         </div>
+
+        <TrustSection {...legalTrustContent} />
       </main>
 
       <Footer />

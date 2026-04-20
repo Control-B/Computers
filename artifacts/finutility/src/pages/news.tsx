@@ -16,8 +16,10 @@ import { Footer } from "@/components/Footer";
 import { AdPlaceholder } from "@/components/AdPlaceholder";
 import { AIBar } from "@/components/AIBar";
 import { EducationalContentBlock } from "@/components/EducationalContentBlock";
+import { TrustSection } from "@/components/TrustSection";
 import { MarketTickerTape } from "@/components/MarketTickerTape";
 import { newsEducationContent } from "@/lib/educationContent";
+import { newsTrustContent } from "@/lib/trustContent";
 import {
   fetchAllNews,
   clearNewsCache,
@@ -65,24 +67,6 @@ const newsCardImages = [
   newsImage16,
   newsImage17,
   newsImage18,
-];
-
-const newsTrustHighlights = [
-  {
-    title: "Third-party sourcing",
-    description: "Headlines come from external feeds and are presented for educational awareness, not as direct trading instructions.",
-    icon: Eye,
-  },
-  {
-    title: "No endorsement",
-    description: "Coverage of an article, market move, or asset should not be interpreted as Freetawn recommending a purchase, sale, or strategy.",
-    icon: CircleAlert,
-  },
-  {
-    title: "Context-first reading",
-    description: "Readers are encouraged to verify details, compare sources, and pair market coverage with calculators before acting on any scenario.",
-    icon: ShieldCheck,
-  },
 ];
 
 function timeAgo(dateStr: string): string {
@@ -455,12 +439,6 @@ export default function NewsPage() {
         </div>
       </section>
 
-      <section className="bg-slate-950 py-4">
-        <div className="container mx-auto px-4 md:px-8">
-          <AdPlaceholder />
-        </div>
-      </section>
-
       <section className="bg-slate-950 py-8">
         <div className="container mx-auto px-4 md:px-8">
           <div className="mb-6 flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
@@ -591,45 +569,16 @@ export default function NewsPage() {
           )}
 
           <div className="mt-16">
-            <EducationalContentBlock {...newsEducationContent} theme="blue" />
+            <AdPlaceholder />
           </div>
 
-          <div className="mt-16 rounded-[2rem] border border-slate-800 bg-slate-900/80 p-8 md:p-10 shadow-[0_0_0_1px_rgba(255,255,255,0.02)]">
-            <div className="max-w-3xl">
-              <div className="text-xs font-bold uppercase tracking-[0.22em] text-blue-300">Trust and disclosure</div>
-              <h2 className="mt-4 text-3xl font-black tracking-tight text-white md:text-4xl">
-                Why this news page is framed around caution and context
-              </h2>
-              <p className="mt-4 text-base leading-8 text-slate-300 md:text-lg">
-                Freetawn surfaces financial headlines to help readers stay informed, but the page is intentionally structured around source labels, market context, and clear disclaimers so readers do not confuse information access with individualized advice.
-              </p>
-            </div>
-
-            <div className="mt-10 grid grid-cols-1 gap-6 md:grid-cols-3">
-              {newsTrustHighlights.map((item) => {
-                const Icon = item.icon;
-                return (
-                  <div key={item.title} className="rounded-3xl border border-slate-800 bg-slate-950/80 p-6">
-                    <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-blue-500/10 text-blue-300">
-                      <Icon className="h-6 w-6" />
-                    </div>
-                    <h3 className="text-xl font-black text-white">{item.title}</h3>
-                    <p className="mt-3 text-sm leading-7 text-slate-400 md:text-base">{item.description}</p>
-                  </div>
-                );
-              })}
-            </div>
+          <div className="mt-16">
+            <EducationalContentBlock {...newsEducationContent} theme="blue" />
           </div>
         </div>
       </section>
 
-      <div className="bg-slate-950 px-4 pb-6">
-        <div className="container mx-auto px-4 md:px-8">
-          <p className="text-center text-[11px] italic text-slate-600">
-            News content is sourced from third-party RSS feeds and refreshed daily. Market tape data is provided via an external widget. Freetawn does not produce, verify, or endorse any article or quote. This is not financial advice.
-          </p>
-        </div>
-      </div>
+      <TrustSection {...newsTrustContent} />
 
       <Footer />
     </div>

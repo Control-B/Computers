@@ -7,7 +7,9 @@ import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
 import { EducationalContentBlock } from "@/components/EducationalContentBlock";
+import { TrustSection } from "@/components/TrustSection";
 import { contactEducationContent } from "@/lib/educationContent";
+import { contactTrustContent } from "@/lib/trustContent";
 
 export default function ContactPage() {
   const { toast } = useToast();
@@ -65,6 +67,10 @@ export default function ContactPage() {
 
           <div className="mt-16">
             <EducationalContentBlock {...contactEducationContent} theme="blue" />
+          </div>
+
+          <div className="mt-16">
+            <TrustSection {...contactTrustContent} />
           </div>
         </div>
       </main>

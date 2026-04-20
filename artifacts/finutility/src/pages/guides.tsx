@@ -2,10 +2,12 @@ import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { AdPlaceholder } from "@/components/AdPlaceholder";
 import { EducationalContentBlock } from "@/components/EducationalContentBlock";
+import { TrustSection } from "@/components/TrustSection";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, BookOpen, Clock3, ShieldCheck, BookMarked, Eye } from "lucide-react";
+import { ArrowRight, BookOpen, Clock3 } from "lucide-react";
 import { guideArticles } from "@/lib/guides";
 import { guidesEducationContent } from "@/lib/educationContent";
+import { guidesTrustContent } from "@/lib/trustContent";
 import guideImage1 from "@assets/Landing41.jpeg";
 import guideImage2 from "@assets/Landing37.jpeg";
 import guideImage3 from "@assets/Landing48.jpeg";
@@ -30,24 +32,6 @@ const guideCardImages = [
   guideImage10,
 ];
 
-const trustHighlights = [
-  {
-    title: "Educational by design",
-    description: "Guides are written to explain concepts and tradeoffs clearly, not to pressure readers into one financial move.",
-    icon: BookMarked,
-  },
-  {
-    title: "Transparent context",
-    description: "Articles are paired with calculators and support pages so readers can test assumptions instead of relying on guesswork.",
-    icon: Eye,
-  },
-  {
-    title: "Privacy-first tools",
-    description: "Core calculations are designed to stay simple and browser-first, helping users explore scenarios without account friction.",
-    icon: ShieldCheck,
-  },
-];
-
 export default function GuidesPage() {
   const visibleGuideArticles = guideArticles.slice(0, guideCardImages.length);
 
@@ -65,12 +49,6 @@ export default function GuidesPage() {
             <p className="mt-6 max-w-3xl text-lg leading-8 text-slate-300">
               Explore beginner-friendly guides on mortgages, savings, loans, crypto profit, and currency conversion. Each guide links back to a calculator so readers can apply the concept to their own numbers.
             </p>
-          </div>
-        </section>
-
-        <section className="py-8 bg-background">
-          <div className="container mx-auto px-4 md:px-8 max-w-6xl">
-            <AdPlaceholder />
           </div>
         </section>
 
@@ -107,37 +85,17 @@ export default function GuidesPage() {
             </div>
 
             <div className="mt-16">
+              <AdPlaceholder />
+            </div>
+
+            <div className="mt-16">
               <EducationalContentBlock {...guidesEducationContent} theme="blue" />
             </div>
 
-            <div className="mt-16 rounded-[2rem] border border-slate-200 bg-slate-50 p-8 md:p-10">
-              <div className="max-w-3xl">
-                <div className="text-xs font-bold uppercase tracking-[0.22em] text-blue-600">Trust and clarity</div>
-                <h2 className="mt-4 text-3xl font-black tracking-tight text-slate-900 md:text-4xl">
-                  Readers should know how the content is meant to help
-                </h2>
-                <p className="mt-4 text-base leading-8 text-slate-600 md:text-lg">
-                  These guides are built to support financial understanding and better questions. They are not individualized financial, tax, or legal advice, which is why Freetawn keeps calculators, policies, and support links close to the learning experience.
-                </p>
-              </div>
-
-              <div className="mt-10 grid grid-cols-1 gap-6 md:grid-cols-3">
-                {trustHighlights.map((item) => {
-                  const Icon = item.icon;
-                  return (
-                    <div key={item.title} className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
-                      <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-blue-50 text-blue-600">
-                        <Icon className="h-6 w-6" />
-                      </div>
-                      <h3 className="text-xl font-black text-slate-900">{item.title}</h3>
-                      <p className="mt-3 text-sm leading-7 text-slate-600 md:text-base">{item.description}</p>
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
           </div>
         </section>
+
+        <TrustSection {...guidesTrustContent} />
       </main>
       <Footer />
     </div>

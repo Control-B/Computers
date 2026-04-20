@@ -8,6 +8,7 @@ import { AIBar } from "@/components/AIBar";
 import { ToolCard } from "@/components/ToolCard";
 import { FAQAccordion } from "@/components/FAQAccordion";
 import { EducationalContentBlock } from "@/components/EducationalContentBlock";
+import { TrustSection } from "@/components/TrustSection";
 import { TrendingUp, PiggyBank, Calculator, PlayCircle, ShieldCheck, DollarSign, Search, ArrowRight, CheckCircle2 } from "lucide-react";
 import { Link } from "wouter";
 import { motion } from "framer-motion";
@@ -15,6 +16,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { parseNaturalLanguage } from "@/lib/nlParser";
 import { financeEducationContent } from "@/lib/educationContent";
+import { financeTrustContent } from "@/lib/trustContent";
 import heroBg from "@assets/Landing41.jpeg";
 import articleBg from "@assets/Landing39.jpeg";
 import toolCompound from "@assets/Landing41.jpeg";
@@ -123,13 +125,6 @@ export default function FinanceCategory() {
           </div>
         </section>
 
-        {/* Ad */}
-        <div className="bg-white px-4 pt-4 pb-4">
-          <div className="container mx-auto px-4 md:px-8">
-            <AdPlaceholder />
-          </div>
-        </div>
-
         {/* Tool Cards */}
         <section className="bg-white py-20">
           <div className="container mx-auto px-4 md:px-8">
@@ -147,6 +142,12 @@ export default function FinanceCategory() {
             </motion.div>
           </div>
         </section>
+
+        <div className="bg-slate-50 px-4 pt-10 pb-0">
+          <div className="container mx-auto px-4 md:px-8">
+            <AdPlaceholder />
+          </div>
+        </div>
 
         <section className="bg-slate-50 py-20">
           <div className="container mx-auto px-4 md:px-8">
@@ -218,7 +219,7 @@ export default function FinanceCategory() {
               <div className="lg:col-span-5 space-y-10">
                 <div>
                   <h2 className="text-2xl font-black text-white mb-6">Finance FAQ</h2>
-                  <FAQAccordion items={[
+                  <FAQAccordion tone="inverse" items={[
                     { question: "How much should I save each month?", answer: "A common rule of thumb is the 50/30/20 rule: 50% for needs, 30% for wants, and 20% for savings and debt repayment." },
                     { question: "What is an emergency fund?", answer: "An emergency fund covers unexpected expenses. Experts recommend 3–6 months of living expenses." },
                     { question: "Why is compound interest important?", answer: "Compound interest earns returns on both principal and accumulated interest, causing exponential wealth growth over time." }
@@ -300,6 +301,8 @@ export default function FinanceCategory() {
             <AdPlaceholder />
           </div>
         </div>
+
+        <TrustSection {...financeTrustContent} />
       </main>
       <Footer />
     </div>

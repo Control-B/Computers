@@ -8,6 +8,7 @@ import { AIBar } from "@/components/AIBar";
 import { ToolCard } from "@/components/ToolCard";
 import { FAQAccordion } from "@/components/FAQAccordion";
 import { EducationalContentBlock } from "@/components/EducationalContentBlock";
+import { TrustSection } from "@/components/TrustSection";
 import { Bitcoin, Calculator, PlayCircle, ShieldCheck, DollarSign, Search, ArrowRight, TrendingUp, CheckCircle2 } from "lucide-react";
 import { Link } from "wouter";
 import { motion } from "framer-motion";
@@ -15,6 +16,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { parseNaturalLanguage } from "@/lib/nlParser";
 import { cryptoEducationContent } from "@/lib/educationContent";
+import { cryptoTrustContent } from "@/lib/trustContent";
 import heroBg from "@assets/Crypto3.jpeg";
 import articleBg from "@assets/Landing48.jpeg";
 import toolCrypto from "@assets/Crypto3.jpeg";
@@ -119,13 +121,6 @@ export default function CryptoCategory() {
           </div>
         </section>
 
-        {/* Ad */}
-        <div className="bg-white px-4 pt-4 pb-4">
-          <div className="container mx-auto px-4 md:px-8">
-            <AdPlaceholder />
-          </div>
-        </div>
-
         {/* Tool Cards */}
         <section className="bg-white py-20">
           <div className="container mx-auto px-4 md:px-8">
@@ -143,6 +138,12 @@ export default function CryptoCategory() {
             </motion.div>
           </div>
         </section>
+
+        <div className="bg-slate-50 px-4 pt-10 pb-0">
+          <div className="container mx-auto px-4 md:px-8">
+            <AdPlaceholder />
+          </div>
+        </div>
 
         <section className="bg-slate-50 py-20">
           <div className="container mx-auto px-4 md:px-8">
@@ -210,7 +211,7 @@ export default function CryptoCategory() {
               <div className="lg:col-span-5 space-y-10">
                 <div>
                   <h2 className="text-2xl font-black text-white mb-6">Crypto FAQ</h2>
-                  <FAQAccordion items={[
+                  <FAQAccordion tone="inverse" items={[
                     { question: "How do exchange fees affect my profit?", answer: "Exchanges charge fees on both buy and sell sides. Even if the price rises, fees can eliminate gains." },
                     { question: "What is ROI?", answer: "ROI is the ratio of net profit to initial investment, expressed as a percentage — the best way to compare trade performance." },
                     { question: "Do I need to pay taxes on crypto gains?", answer: "In most jurisdictions, yes. Crypto trades are subject to capital gains tax. Consult a tax professional in your region." }
@@ -280,6 +281,8 @@ export default function CryptoCategory() {
             <AdPlaceholder />
           </div>
         </div>
+
+        <TrustSection {...cryptoTrustContent} />
       </main>
       <Footer />
     </div>
