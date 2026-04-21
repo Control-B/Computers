@@ -151,7 +151,7 @@ export default function HomePage() {
                 <span className="text-blue-400">Tools + Expert Guides</span>
               </h1>
               <p className="text-xl text-slate-300 mb-10 max-w-2xl mx-auto leading-relaxed">
-                Free calculators and expert guides for every tech decision. Know what you need before you buy. Build smarter. Fix faster. Save real money.
+                Free calculators, troubleshooting-aware guides, and practical buyer education for every tech decision. Know what you need before you buy. Build smarter. Fix faster. Save real money.
               </p>
 
               {/* NL Search */}

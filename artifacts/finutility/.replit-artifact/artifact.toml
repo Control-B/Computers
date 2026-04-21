@@ -1,6 +1,6 @@
 kind = "web"
 previewPath = "/"
-title = "freetawn"
+title = "TechIQ"
 version = "1.0.0"
 id = "artifacts/finutility"
 router = "path"
@@ -15,10 +15,10 @@ paths = [ "/" ]
 localPort = 19382
 
 [services.development]
-run = "pnpm --filter @workspace/finutility run dev"
+run = "pnpm --filter @workspace/techiq-web run dev"
 
 [services.production]
-build = [ "pnpm", "--filter", "@workspace/finutility", "run", "build" ]
+build = [ "pnpm", "--filter", "@workspace/techiq-web", "run", "build" ]
 publicDir = "artifacts/finutility/dist/public"
 serve = "static"
 

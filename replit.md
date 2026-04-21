@@ -1,63 +1,55 @@
-# FinUtility AI
+# TechIQ
 
 ## Overview
 
-A full multi-page financial utility website with AI-powered natural language input, 6 working calculators, category pages, SEO content pages, and legal pages.
+TechIQ is a multi-page computer and electronics education platform with practical calculators, buyer guides, and troubleshooting-oriented content for everyday users.
 
 ## Stack
 
 - **Monorepo tool**: pnpm workspaces
 - **Node.js version**: 24
 - **Package manager**: pnpm
-- **Frontend**: React + Vite + TypeScript (artifacts/finutility)
+- **Frontend**: React + Vite + TypeScript (`artifacts/finutility`)
 - **Styling**: Tailwind CSS v4 + shadcn/ui components
 - **Charts**: Recharts
 - **Animations**: Framer Motion
-- **Routing**: Wouter (client-side only, no backend)
-- **API framework**: Express 5 (artifacts/api-server, not used by frontend)
-- **Database**: PostgreSQL + Drizzle ORM (not used by frontend)
+- **Routing**: Wouter
+- **API framework**: Express 5 (`artifacts/api-server`)
 
 ## Architecture
 
-This is a **frontend-only** React app. All calculator logic runs entirely client-side in the browser. No API calls for calculations.
+This is a frontend-led app with calculator logic and educational content focused on computers and electronics. The UI is built around buyer confidence, troubleshooting clarity, and practical decision support.
 
 ### Key Files
-- `artifacts/finutility/src/lib/calculators.ts` — All math formulas (compound interest, mortgage, loan, crypto, savings, currency)
-- `artifacts/finutility/src/lib/aiInsights.ts` — Context-aware AI explanation generator (deterministic, no API)
-- `artifacts/finutility/src/lib/nlParser.ts` — Natural language parser for hero input
-- `artifacts/finutility/src/components/` — Reusable components (Navbar, Footer, ChartModule, AdPlaceholder, AIInsightCard, etc.)
-- `artifacts/finutility/src/pages/` — All 24+ page components
+- `artifacts/finutility/src/lib/calculators.ts` — core calculators for PC builds, PSU sizing, storage, battery, and internet speed
+- `artifacts/finutility/src/lib/aiInsights.ts` — context-aware explanations with practical tech guidance
+- `artifacts/finutility/src/lib/educationContent.ts` — educational support content written in an expert-helpful tone
+- `artifacts/finutility/src/lib/trustContent.ts` — trust, disclosure, and expectation-setting content
+- `artifacts/finutility/src/components/` — shared UI components
+- `artifacts/finutility/src/pages/` — routes for home, categories, calculators, guides, and legal pages
 
-## Site Structure (24+ pages)
+## Site Structure
 
 ### Homepage
-- `/` — Hero with NL search, calculator grid, category cards, FAQ, testimonials
+- `/` — Hero search, featured calculators, categories, guides, FAQ, trust content
 
-### Calculators (6)
-- `/compound-interest-calculator`
-- `/mortgage-calculator`
-- `/loan-payment-calculator`
-- `/currency-converter`
-- `/crypto-profit-calculator`
-- `/savings-goal-calculator`
+### Category Pages
+- `/laptops`
+- `/components`
+- `/networking`
+- `/smartphones`
 
-### Category Pages (3)
-- `/finance`
-- `/crypto`
-- `/loans`
+### Calculator Pages
+- `/pc-build-calculator`
+- `/psu-calculator`
+- `/storage-calculator`
+- `/internet-speed-estimator`
+- `/battery-life-calculator`
+- `/gpu-comparison`
 
-### SEO Content Pages (9)
-- `/what-is-compound-interest`
-- `/how-compound-interest-works`
-- `/how-to-calculate-mortgage-payments`
-- `/loan-interest-explained`
-- `/how-to-save-money-faster`
-- `/how-to-calculate-crypto-profit`
-- `/crypto-profit-vs-loss-explained`
-- `/how-currency-conversion-works`
-- `/what-affects-exchange-rates`
-
-### Legal Pages (5)
+### Guides & Legal
+- `/guides`
+- article routes for buying, troubleshooting, and setup help
 - `/privacy-policy`
 - `/terms-of-use`
 - `/disclaimer`
@@ -65,13 +57,13 @@ This is a **frontend-only** React app. All calculator logic runs entirely client
 - `/contact`
 
 ## Design System
-- Background: hsl(210 20% 98%)
-- Primary: hsl(221 83% 53%) — blue-600
-- Hero sections: Dark navy gradient (#0F172A → #1E3A8A)
+- Background: `hsl(210 20% 98%)`
+- Primary: `hsl(221 83% 53%)` — blue-600
+- Hero: dark navy / electric blue gradient
 - Cards: white, rounded-xl, shadow-sm
-- Charts: blue (#2563EB) for principal, green (#16A34A) for interest/profit, red (#DC2626) for losses
+- Tone: expert, practical, troubleshooting-aware, no hype
 
 ## Key Commands
 - `pnpm run typecheck` — full typecheck
 - `pnpm run build` — build all packages
-- Dev server: artifacts/finutility workflow (PORT env auto-assigned)
+- `pnpm run dev` — start the frontend locally

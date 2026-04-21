@@ -1,6 +1,6 @@
-# FinUtility — Financial Calculator Suite
+# TechIQ — Computer & Electronics Tools and Guides
 
-A modern financial calculator web app with live RSS news, data-driven financial insights, and tools for compound interest, mortgages, loans, crypto profit, savings goals, and currency conversion.
+`Computers` is the repository for **TechIQ**, a modern computer and electronics decision platform with practical calculators, expert buying guides, and troubleshooting-focused educational content.
 
 ---
 
@@ -14,8 +14,8 @@ A modern financial calculator web app with live RSS news, data-driven financial 
 
 ```bash
 # 1. Clone the repo
-git clone https://github.com/Control-B/Calculator.git
-cd Calculator
+git clone https://github.com/Control-B/Computers.git
+cd Computers
 
 # 2. Install dependencies
 pnpm install
@@ -28,19 +28,31 @@ Then open **http://localhost:3000** in your browser.
 
 ---
 
+## What TechIQ Covers
+
+- **PC Building** — Estimate part costs, compare GPUs, and choose the right PSU
+- **Storage & Performance** — Plan storage capacity and avoid common bottlenecks
+- **Networking** — Estimate home internet needs and improve WiFi decisions
+- **Battery & Mobile** — Understand battery life tradeoffs for phones and laptops
+- **Expert Guides** — Learn with practical, troubleshooting-aware buying and setup content
+
+---
+
 ## Project Structure
 
-```
-Calculator/
+```text
+Computers/
 ├── artifacts/
-│   └── finutility/          # Main frontend app (React + Vite + Tailwind)
-│       ├── src/
-│       │   ├── components/  # Shared UI components
-│       │   ├── pages/       # Route pages (home, finance, crypto, loans, news, calculators)
-│       │   └── lib/         # Utilities (calculators, insight engine, news service, NLP parser)
-│       └── package.json
-├── attached_assets/         # Image assets used throughout the site
-├── package.json             # Root workspace (run scripts from here)
+│   ├── finutility/          # Main TechIQ frontend app (React + Vite + Tailwind)
+│   │   ├── src/
+│   │   │   ├── components/  # Shared UI components
+│   │   │   ├── pages/       # Homepage, category pages, calculators, guides, legal pages
+│   │   │   └── lib/         # Calculators, insights, educational content, NLP parser
+│   │   └── package.json
+│   └── api-server/          # Supporting API server workspace package
+├── lib/                     # Shared packages and generated clients/schemas
+├── scripts/                 # Utility scripts
+├── package.json             # Root workspace scripts
 └── pnpm-workspace.yaml
 ```
 
@@ -52,18 +64,9 @@ From the **root directory**:
 
 | Command | Description |
 |---|---|
-| `pnpm dev` | Start dev server at `localhost:3000` |
-| `pnpm build` | Type-check and build all packages |
+| `pnpm dev` | Start the frontend dev server at `localhost:3000` |
+| `pnpm build` | Type-check and build the workspace |
 | `pnpm typecheck` | Run TypeScript checks across the workspace |
-
----
-
-## Features
-
-- **Calculators** — Compound Interest, Mortgage, Loan Payment, Savings Goal, Currency Converter, Crypto Profit
-- **Financial Insight** — Data-driven insight engine based on real market conditions (no AI API required)
-- **News** — Live RSS headlines from BBC Business, The Guardian, MarketWatch, CNBC, CoinDesk, CoinTelegraph, Decrypt, Investopedia — cached daily in localStorage
-- **Ad Placeholders** — Pre-wired placement slots ready for Google AdSense integration
 
 ---
 
@@ -74,5 +77,5 @@ From the **root directory**:
 - **Tailwind CSS 4** — styling
 - **Framer Motion** — animations
 - **Wouter** — client-side routing
-- **Embla Carousel** — image carousels
+- **Recharts** — data visualizations
 - **pnpm workspaces** — monorepo management

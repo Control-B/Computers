@@ -14,7 +14,7 @@ export function Footer() {
               <span className="text-xl font-bold text-white">TechIQ</span>
             </Link>
             <p className="text-sm text-slate-400 mb-6 leading-relaxed pr-4">
-              Your trusted computers and electronics resource. Free tech calculators, expert buying guides, and troubleshooting advice to help you buy smarter, build better, and avoid costly mistakes.
+              Your trusted computers and electronics resource. Free tech calculators, expert buying guides, and tech-support-style troubleshooting advice to help you buy smarter, build better, and avoid costly mistakes.
             </p>
             <a href="mailto:support@techiq.ai" className="text-sm text-blue-400 hover:text-blue-300 transition-colors">
               support@techiq.ai

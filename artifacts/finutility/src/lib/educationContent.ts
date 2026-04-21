@@ -20,7 +20,7 @@ export const homeEducationContent: EducationalContentEntry = {
     {
       title: "What TechIQ helps you understand",
       description:
-        "TechIQ pairs performance calculators with real-world guidance — so you know what PSU wattage your build needs before ordering parts, which GPU matches your monitor before buying one, and whether your internet plan actually meets your household's needs.",
+        "TechIQ pairs performance calculators with real-world guidance and tech-support-style explanations — so you know what PSU wattage your build needs before ordering parts, which GPU matches your monitor before buying one, and whether your internet plan actually meets your household's needs.",
       bullets: [
         "Component compatibility matters more than individual specs — matching CPU, GPU, and RAM prevents expensive bottlenecks.",
         "The right tool for your use case beats raw specs every time — a $300 GPU can outperform a $500 one at your resolution.",
@@ -397,7 +397,7 @@ export const guidesEducationContent: EducationalContentEntry = {
     {
       title: "What the guides are designed to do",
       description:
-        "TechIQ guides are written to make computers and electronics topics accessible without glossing over the practical details that determine whether a purchase or configuration decision succeeds.",
+        "TechIQ guides are written to make computers and electronics topics accessible without glossing over the practical details that determine whether a purchase, setup, or troubleshooting decision succeeds.",
       bullets: [
         "Each guide pairs plain-English explanations with a relevant calculator or comparison tool.",
         "Topics focus on real decisions: which GPU for your resolution, what RAM for your workflow, when to repair vs. replace.",
