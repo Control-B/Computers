@@ -52,6 +52,7 @@ export function Navbar() {
     { label: "Components", href: "/components" },
     { label: "Networking", href: "/networking" },
     { label: "Smartphones", href: "/smartphones" },
+    { label: "Tech Support", href: "/tech-support" },
     { label: "Guides", href: "/guides" },
   ];
 

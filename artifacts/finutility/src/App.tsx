@@ -23,6 +23,7 @@ import GPUComparison from "@/pages/gpu-comparison";
 
 // Guides & Articles
 import GuidesPage from "@/pages/guides";
+import TechSupportPage from "@/pages/tech-support";
 import ArticlePage from "@/pages/article";
 
 // Legal & Info
@@ -53,6 +54,7 @@ function Router() {
 
       {/* Guides & Articles */}
       <Route path="/guides" component={GuidesPage} />
+      <Route path="/tech-support" component={TechSupportPage} />
       <Route path="/best-laptop-for-programming-under-1000" component={ArticlePage} />
       <Route path="/how-to-fix-slow-computer-performance" component={ArticlePage} />
       <Route path="/what-gpu-do-you-need-for-gaming" component={ArticlePage} />

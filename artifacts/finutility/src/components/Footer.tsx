@@ -36,6 +36,7 @@ export function Footer() {
           <div>
             <h3 className="font-semibold text-white mb-6 uppercase tracking-wider text-sm">Learn</h3>
             <ul className="space-y-3 text-sm text-slate-400">
+              <li><Link href="/tech-support" className="hover:text-blue-400 hover:translate-x-1 inline-block transition-all">Tech Support Hub</Link></li>
               <li><Link href="/guides" className="hover:text-blue-400 hover:translate-x-1 inline-block transition-all">All Guides</Link></li>
               <li><Link href="/how-to-build-a-pc-step-by-step" className="hover:text-blue-400 hover:translate-x-1 inline-block transition-all">How to Build a PC</Link></li>
               <li><Link href="/best-laptop-for-programming-under-1000" className="hover:text-blue-400 hover:translate-x-1 inline-block transition-all">Best Laptop for Programming</Link></li>

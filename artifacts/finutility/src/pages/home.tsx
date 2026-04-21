@@ -14,7 +14,7 @@ import { homeEducationContent } from "@/lib/educationContent";
 import { homeTrustContent } from "@/lib/trustContent";
 import { guideArticles } from "@/lib/guides";
 import {
-  Search, Cpu, Monitor, Wifi, Smartphone, ChevronRight, Clock,
+  Search, Cpu, Monitor, Wifi, Smartphone, ChevronRight, ArrowRight, Clock,
   BookOpen, Star, ShieldCheck, Zap, HardDrive, Battery, BarChart3
 } from "lucide-react";
 
@@ -243,6 +243,36 @@ export default function HomePage() {
                   </div>
                 </Link>
               ))}
+            </div>
+          </section>
+
+          <section className="my-14 rounded-[2rem] border border-blue-200 bg-linear-to-br from-blue-50 to-white p-8 md:p-10">
+            <div className="grid grid-cols-1 lg:grid-cols-[1.15fr_0.85fr] gap-8 items-start">
+              <div>
+                <div className="text-xs font-bold uppercase tracking-[0.22em] text-blue-600 mb-4">Tech Support Hub</div>
+                <h2 className="text-3xl md:text-4xl font-black text-slate-900 mb-4">Troubleshoot real problems before you replace the wrong thing.</h2>
+                <p className="text-slate-600 leading-8 text-lg max-w-3xl">Use the new support page for symptom-first answers on slow computers, WiFi issues, battery drain, boot failures, storage warnings, and build compatibility questions. It reads like practical help desk guidance, not generic filler.</p>
+                <div className="mt-6 flex flex-wrap gap-3">
+                  <Link href="/tech-support" className="inline-flex items-center gap-2 rounded-xl bg-blue-600 px-5 py-3 text-white font-semibold hover:bg-blue-700 transition-colors">
+                    Open Tech Support Hub <ArrowRight className="h-4 w-4" />
+                  </Link>
+                  <Link href="/guides" className="inline-flex items-center gap-2 rounded-xl border border-blue-200 bg-white px-5 py-3 text-blue-700 font-semibold hover:bg-blue-50 transition-colors">
+                    Browse expert guides
+                  </Link>
+                </div>
+              </div>
+              <div className="grid gap-4">
+                {[
+                  "Why is my PC suddenly slow?",
+                  "Why does my WiFi work in one room but not another?",
+                  "How do I tell if it is the battery or the charger?",
+                  "Fans spin, but there is no display — what now?",
+                ].map((item) => (
+                  <div key={item} className="rounded-2xl border border-blue-100 bg-white px-5 py-4 text-sm font-medium text-slate-700 shadow-sm">
+                    {item}
+                  </div>
+                ))}
+              </div>
             </div>
           </section>
 

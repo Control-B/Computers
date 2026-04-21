@@ -33,6 +33,10 @@ const metaByPath: Record<string, MetaEntry> = {
     title: "Computer & Electronics Expert Guides | TechIQ",
     description: "In-depth tech guides using the Problem → Solution → Benefit framework with real-world STAR scenarios. Covers laptops, PCs, components, networking, and smartphones.",
   },
+  "/tech-support": {
+    title: "Tech Support Hub — Common Computer Problems and Fixes | TechIQ",
+    description: "Comprehensive tech support answers for slow computers, WiFi problems, battery drain, boot issues, storage warnings, and PC build compatibility questions.",
+  },
   "/pc-build-calculator": {
     title: "PC Build Cost Calculator — Estimate Your Gaming PC Budget | TechIQ",
     description: "Free PC build cost calculator. Estimate total build cost by selecting CPU, GPU, RAM, storage, and peripherals. Includes performance tier estimates and budget optimization tips.",
