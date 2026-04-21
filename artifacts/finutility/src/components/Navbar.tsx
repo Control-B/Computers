@@ -1,36 +1,43 @@
 import { Link, useLocation } from "wouter";
-import { Menu, X, Leaf } from "lucide-react";
+import { Menu, X, Cpu } from "lucide-react";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 
 const navThemeByRoute = [
   {
-    match: (pathname: string) => pathname.startsWith("/home-improvement"),
-    navClassName: "border-emerald-900/60 bg-gradient-to-r from-slate-950/95 via-emerald-950/92 to-slate-900/95 supports-[backdrop-filter]:bg-emerald-950/60",
-    linkClassName: "hover:text-emerald-200",
-    activeClassName: "text-emerald-200",
-    buttonClassName: "bg-emerald-600 text-white hover:bg-emerald-700",
+    match: (pathname: string) => pathname.startsWith("/laptops"),
+    navClassName: "border-blue-900/60 bg-gradient-to-r from-slate-950/95 via-blue-950/92 to-slate-900/95 supports-[backdrop-filter]:bg-blue-950/60",
+    linkClassName: "hover:text-blue-200",
+    activeClassName: "text-blue-200",
+    buttonClassName: "bg-blue-600 text-white hover:bg-blue-700",
   },
   {
-    match: (pathname: string) => pathname.startsWith("/garden"),
-    navClassName: "border-lime-900/60 bg-gradient-to-r from-slate-950/95 via-lime-950/92 to-slate-900/95 supports-[backdrop-filter]:bg-lime-950/60",
-    linkClassName: "hover:text-lime-200",
-    activeClassName: "text-lime-200",
-    buttonClassName: "bg-lime-700 text-white hover:bg-lime-800",
+    match: (pathname: string) => pathname.startsWith("/components"),
+    navClassName: "border-purple-900/60 bg-gradient-to-r from-slate-950/95 via-purple-950/92 to-slate-900/95 supports-[backdrop-filter]:bg-purple-950/60",
+    linkClassName: "hover:text-purple-200",
+    activeClassName: "text-purple-200",
+    buttonClassName: "bg-purple-600 text-white hover:bg-purple-700",
   },
   {
-    match: (pathname: string) => pathname.startsWith("/exterior"),
-    navClassName: "border-amber-900/60 bg-gradient-to-r from-slate-950/95 via-amber-950/92 to-slate-900/95 supports-[backdrop-filter]:bg-amber-950/60",
-    linkClassName: "hover:text-amber-200",
-    activeClassName: "text-amber-200",
-    buttonClassName: "bg-amber-600 text-white hover:bg-amber-700",
+    match: (pathname: string) => pathname.startsWith("/networking"),
+    navClassName: "border-cyan-900/60 bg-gradient-to-r from-slate-950/95 via-cyan-950/92 to-slate-900/95 supports-[backdrop-filter]:bg-cyan-950/60",
+    linkClassName: "hover:text-cyan-200",
+    activeClassName: "text-cyan-200",
+    buttonClassName: "bg-cyan-600 text-white hover:bg-cyan-700",
+  },
+  {
+    match: (pathname: string) => pathname.startsWith("/smartphones"),
+    navClassName: "border-indigo-900/60 bg-gradient-to-r from-slate-950/95 via-indigo-950/92 to-slate-900/95 supports-[backdrop-filter]:bg-indigo-950/60",
+    linkClassName: "hover:text-indigo-200",
+    activeClassName: "text-indigo-200",
+    buttonClassName: "bg-indigo-600 text-white hover:bg-indigo-700",
   },
   {
     match: () => true,
-    navClassName: "border-emerald-900/60 bg-gradient-to-r from-slate-950/95 via-emerald-950/92 to-slate-900/95 supports-[backdrop-filter]:bg-emerald-950/60",
-    linkClassName: "hover:text-emerald-200",
-    activeClassName: "text-emerald-200",
-    buttonClassName: "bg-emerald-600 text-white hover:bg-emerald-700",
+    navClassName: "border-blue-900/60 bg-gradient-to-r from-slate-950/95 via-blue-950/92 to-slate-900/95 supports-[backdrop-filter]:bg-blue-950/60",
+    linkClassName: "hover:text-blue-200",
+    activeClassName: "text-blue-200",
+    buttonClassName: "bg-blue-600 text-white hover:bg-blue-700",
   },
 ];
 
@@ -41,9 +48,10 @@ export function Navbar() {
 
   const links = [
     { label: "Home", href: "/" },
-    { label: "Home Improvement", href: "/home-improvement" },
-    { label: "Garden", href: "/garden" },
-    { label: "Exterior", href: "/exterior" },
+    { label: "Laptops & PCs", href: "/laptops" },
+    { label: "Components", href: "/components" },
+    { label: "Networking", href: "/networking" },
+    { label: "Smartphones", href: "/smartphones" },
     { label: "Guides", href: "/guides" },
   ];
 
@@ -51,14 +59,14 @@ export function Navbar() {
     <nav className={`sticky top-0 z-50 w-full border-b backdrop-blur ${theme.navClassName}`}>
       <div className="container mx-auto px-4 md:px-8 flex h-16 items-center justify-between">
         <Link href="/" className="flex items-center gap-2" data-testid="link-home-logo">
-          <div className="flex h-8 w-8 items-center justify-center rounded-md bg-emerald-600 text-white font-bold text-sm">
-            <Leaf className="h-4 w-4" />
+          <div className="flex h-8 w-8 items-center justify-center rounded-md bg-blue-600 text-white font-bold text-sm">
+            <Cpu className="h-4 w-4" />
           </div>
-          <span className="text-xl font-bold text-white">Gardens</span>
+          <span className="text-xl font-bold text-white">TechIQ</span>
         </Link>
 
         {/* Desktop Nav — centered */}
-        <div className="hidden md:flex items-center gap-8 absolute left-1/2 -translate-x-1/2">
+        <div className="hidden md:flex items-center gap-6 absolute left-1/2 -translate-x-1/2">
           {links.map((link) => (
             <Link
               key={link.href}
@@ -76,7 +84,7 @@ export function Navbar() {
         {/* CTA stays right-aligned */}
         <div className="hidden md:flex">
           <Button size="sm" className={theme.buttonClassName} asChild>
-            <Link href="/roof-cost-calculator" data-testid="link-nav-cta">Get a Cost Estimate</Link>
+            <Link href="/pc-build-calculator" data-testid="link-nav-cta">Build PC Cost</Link>
           </Button>
         </div>
 
@@ -108,8 +116,8 @@ export function Navbar() {
             </Link>
           ))}
           <Button className={`mt-2 w-full ${theme.buttonClassName}`} asChild>
-            <Link href="/roof-cost-calculator" onClick={() => setIsOpen(false)}>
-              Get a Cost Estimate
+            <Link href="/pc-build-calculator" onClick={() => setIsOpen(false)}>
+              Build PC Cost
             </Link>
           </Button>
         </div>

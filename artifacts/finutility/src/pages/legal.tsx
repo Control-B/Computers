@@ -6,29 +6,29 @@ import { legalTrustContent } from "@/lib/trustContent";
 
 const pageContent = {
   "/about": {
-    title: "About Gardens",
+    title: "About TechIQ",
     intro:
-      "Gardens is a home and garden education platform built to help homeowners plan better projects, avoid costly mistakes, and make confident decisions before spending money.",
+      "TechIQ is a computers and electronics decision platform built to help everyday users choose the right technology, avoid costly mistakes, and make confident purchases before spending their money.",
     sections: [
       {
-        heading: "What Gardens does",
+        heading: "What TechIQ does",
         paragraphs: [
-          "Gardens combines free cost calculators with practical, real-world guides covering home improvement, gardening, and exterior projects. The goal is to give homeowners realistic cost benchmarks and step-by-step guidance before they commit to any project or contractor.",
-          "Every guide is structured around a real problem, a practical solution, and a demonstrated benefit — with a STAR scenario showing how real homeowners saved money using the same approach.",
+          "TechIQ combines free tech calculators with practical, real-world guides covering laptops, PCs, components, networking, and smartphones. The goal is to give buyers accurate spec benchmarks, estimated costs, and step-by-step guidance before they click 'add to cart.'",
+          "Every guide is structured around a real problem, a practical solution, and a demonstrated benefit — with a STAR scenario showing how real users avoided expensive mistakes or got far more performance per dollar using the same approach.",
         ],
       },
       {
         heading: "Who the site is for",
         paragraphs: [
-          "Gardens is for homeowners, renters, and DIY enthusiasts who want honest cost information and practical guidance without having to sift through vague advice or aggressive upselling.",
-          "It's especially useful before calling contractors — when you need a realistic benchmark to evaluate quotes and ask the right questions.",
+          "TechIQ is for first-time PC builders, laptop buyers, gamers, students, remote workers, and anyone who wants honest tech information without marketing hype, commission-driven recommendations, or confusing jargon.",
+          "It's especially useful before buying — when you need to understand what specs actually matter, what your money gets you at different price points, and which common mistakes to avoid.",
         ],
       },
       {
         heading: "Our approach to trust",
         paragraphs: [
-          "We provide plain-English guidance, privacy-first calculator behavior (all calculations run in your browser), and transparent disclaimers about where estimates may vary by region.",
-          "Questions, corrections, and partnership inquiries can be sent to support@gardens.ai.",
+          "We provide plain-English guidance, privacy-first calculator behavior (all calculations run in your browser — no account required), and transparent disclaimers about where estimates may vary based on market conditions, region, or current product availability.",
+          "Questions, corrections, and partnership inquiries can be sent to support@techiq.ai.",
         ],
       },
     ],
@@ -36,19 +36,19 @@ const pageContent = {
   "/privacy-policy": {
     title: "Privacy Policy",
     intro:
-      "This Privacy Policy explains what information Gardens may collect, how it is used, and how the site is designed to minimize unnecessary data collection.",
+      "This Privacy Policy explains what information TechIQ may collect, how it is used, and how the site is designed to minimize unnecessary data collection.",
     sections: [
       {
         heading: "Calculator inputs",
         paragraphs: [
-          "Gardens is built to keep calculator usage privacy-first. Financial inputs entered into calculators are processed locally in your browser unless a feature clearly states otherwise. We do not ask users to create accounts in order to access core tools.",
+          "TechIQ is built to keep calculator usage privacy-first. All inputs entered into calculators are processed locally in your browser. We do not transmit calculator inputs to our servers, and we do not require users to create accounts in order to access core tools.",
           "Because the tools are browser-based, users should still avoid entering sensitive personal identifiers such as account numbers, social security numbers, or full legal documents into any field on the site.",
         ],
       },
       {
         heading: "Analytics, cookies, and advertising",
         paragraphs: [
-          "Like many websites, Gardens may use basic analytics, log data, and cookies to understand page performance, improve usability, and support advertising or measurement tools. These may include page visits, browser type, device information, and referral data.",
+          "Like many websites, TechIQ may use basic analytics, log data, and cookies to understand page performance, improve usability, and support advertising or measurement tools. These may include page visits, browser type, device information, and referral data.",
           "If advertising services such as Google AdSense are used, third-party vendors may use cookies to serve ads based on prior visits to this and other sites, subject to their own policies and controls.",
         ],
       },
@@ -56,7 +56,7 @@ const pageContent = {
         heading: "Contact and policy questions",
         paragraphs: [
           "If you contact us directly, we may receive the information you choose to include in that message, such as your name, email address, and the contents of your inquiry.",
-          "For privacy questions or policy requests, contact support@omniweb.ai.",
+          "For privacy questions or policy requests, contact support@techiq.ai.",
         ],
       },
     ],
@@ -64,27 +64,27 @@ const pageContent = {
   "/terms-of-use": {
     title: "Terms of Use",
     intro:
-      "By accessing Gardens, you agree to use the site in a lawful manner and understand that the calculators and guides are provided for educational and informational purposes only.",
+      "By accessing TechIQ, you agree to use the site in a lawful manner and understand that the calculators and guides are provided for educational and informational purposes only.",
     sections: [
       {
         heading: "Permitted use",
         paragraphs: [
-          "You may use Gardens for personal, educational, and general informational purposes. You may not misuse the site by attempting to disrupt service, scrape protected content at scale, or use the platform for fraudulent or unlawful activity.",
+          "You may use TechIQ for personal, educational, and general informational purposes. You may not misuse the site by attempting to disrupt service, scrape protected content at scale, or use the platform for fraudulent or unlawful activity.",
           "We reserve the right to limit access or modify site functionality at any time in order to protect service stability, content quality, or compliance obligations.",
         ],
       },
       {
         heading: "No professional relationship",
         paragraphs: [
-          "Use of Gardens does not create a financial-advisor, tax-advisor, legal-advisor, fiduciary, lender, or client relationship. The site does not provide individualized recommendations.",
-          "Users remain responsible for evaluating whether any calculation or article is appropriate for their own circumstances.",
+          "Use of TechIQ does not create a professional advisor, certified technician, engineer, or fiduciary relationship. The site does not provide individualized hardware recommendations for specific critical applications.",
+          "Users remain responsible for evaluating whether any calculation or article is appropriate for their own circumstances, system requirements, and purchasing decisions.",
         ],
       },
       {
         heading: "Content and limitation of liability",
         paragraphs: [
-          "We strive to keep tools and articles useful, but we do not guarantee that every figure, assumption, feed, or example will always be complete, current, or error-free. Financial conditions and provider terms change over time.",
-          "To the fullest extent permitted by law, Gardens is not liable for losses or decisions made in reliance on site content, calculator outputs, or third-party information displayed on the platform.",
+          "We strive to keep tools and articles useful, but we do not guarantee that every figure, assumption, benchmark, or example will always be complete, current, or error-free. Hardware prices, availability, and specifications change frequently.",
+          "To the fullest extent permitted by law, TechIQ is not liable for losses or decisions made in reliance on site content, calculator outputs, or third-party information displayed on the platform.",
         ],
       },
     ],
@@ -92,27 +92,27 @@ const pageContent = {
   "/disclaimer": {
     title: "Disclaimer",
     intro:
-      "The calculators, guides, and project cost estimates on Gardens are for educational and informational purposes only. They are not professional contractor assessments, engineering evaluations, or legal or financial advice.",
+      "The calculators, guides, and hardware estimates on TechIQ are for educational and informational purposes only. They are not professional engineering assessments, certified benchmark tests, or individualized purchasing advice.",
     sections: [
       {
         heading: "Educational use only",
         paragraphs: [
-          "Calculator outputs are based on national average cost data and the dimensions entered by the user. They are intended to provide a realistic planning benchmark — not a guaranteed project cost or professional quote.",
-          "Guides and articles are written to improve home improvement and gardening knowledge. They are not a substitute for on-site assessment by a qualified contractor, engineer, or licensed professional.",
+          "Calculator outputs are based on estimated performance data, average retail pricing, and user-supplied inputs. They are intended to provide a realistic planning benchmark — not a guaranteed performance outcome or exact purchase price.",
+          "Guides and articles are written to improve technology literacy and purchasing decisions. They are not a substitute for professional system integration services, certified repair technicians, or manufacturer support.",
         ],
       },
       {
-        heading: "Cost estimates vary by location",
+        heading: "Prices and availability change",
         paragraphs: [
-          "Material prices and labor rates vary significantly by region, season, and market conditions. Our estimates are based on national averages and may not reflect current prices in your area.",
-          "Always obtain multiple professional quotes before committing to any project over $1,000. Verify current material costs at local suppliers.",
+          "Hardware prices, component availability, and product specifications change frequently due to supply chain conditions, new product releases, and retailer pricing decisions. Our estimates are based on data available at the time of writing and may not reflect current market prices.",
+          "Always verify current pricing and specifications at major retailers (Amazon, Newegg, Best Buy, B&H) before making a purchase. Component pricing can shift 10–30% within a single week during product launches or supply disruptions.",
         ],
       },
       {
         heading: "No guarantee of outcomes",
         paragraphs: [
-          "Actual project costs, timelines, and results depend on factors not captured in our calculators — including site conditions, hidden structural issues, permit requirements, and contractor availability.",
-          "Gardens is not liable for any project costs, damages, or decisions made in reliance on our calculator estimates or guide content.",
+          "Actual performance, battery life, gaming frame rates, and benchmark results depend on many factors not captured in our calculators — including thermal management, driver version, background processes, specific workloads, and individual system configuration.",
+          "TechIQ is not liable for any purchase decisions, hardware compatibility issues, or performance outcomes made in reliance on our calculator estimates or guide content.",
         ],
       },
     ],
@@ -143,7 +143,7 @@ export default function LegalPage() {
               </section>
             ))}
             <p>
-              Questions about these policies can be sent to <a href="mailto:support@gardens.ai">support@gardens.ai</a>.
+              Questions about these policies can be sent to <a href="mailto:support@techiq.ai">support@techiq.ai</a>.
             </p>
           </div>
         </div>

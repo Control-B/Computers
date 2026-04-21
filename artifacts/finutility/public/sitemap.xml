@@ -1,29 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://gardens.ai/</loc></url>
-  <url><loc>https://gardens.ai/home-improvement</loc></url>
-  <url><loc>https://gardens.ai/garden</loc></url>
-  <url><loc>https://gardens.ai/exterior</loc></url>
-  <url><loc>https://gardens.ai/guides</loc></url>
-  <url><loc>https://gardens.ai/roof-cost-calculator</loc></url>
-  <url><loc>https://gardens.ai/paint-calculator</loc></url>
-  <url><loc>https://gardens.ai/lawn-care-calculator</loc></url>
-  <url><loc>https://gardens.ai/fence-cost-calculator</loc></url>
-  <url><loc>https://gardens.ai/garden-planting-calculator</loc></url>
-  <url><loc>https://gardens.ai/home-renovation-calculator</loc></url>
-  <url><loc>https://gardens.ai/how-to-fix-a-leaking-faucet</loc></url>
-  <url><loc>https://gardens.ai/how-to-choose-roof-material</loc></url>
-  <url><loc>https://gardens.ai/how-to-prepare-garden-for-spring</loc></url>
-  <url><loc>https://gardens.ai/how-to-save-on-lawn-care-costs</loc></url>
-  <url><loc>https://gardens.ai/diy-fence-installation-guide</loc></url>
-  <url><loc>https://gardens.ai/when-to-diy-vs-hire-a-contractor</loc></url>
-  <url><loc>https://gardens.ai/how-to-create-a-raised-garden-bed</loc></url>
-  <url><loc>https://gardens.ai/best-plants-for-low-maintenance-gardens</loc></url>
-  <url><loc>https://gardens.ai/how-to-winterize-your-home</loc></url>
-  <url><loc>https://gardens.ai/how-to-paint-a-room-like-a-pro</loc></url>
-  <url><loc>https://gardens.ai/about</loc></url>
-  <url><loc>https://gardens.ai/privacy-policy</loc></url>
-  <url><loc>https://gardens.ai/terms-of-use</loc></url>
-  <url><loc>https://gardens.ai/disclaimer</loc></url>
-  <url><loc>https://gardens.ai/contact</loc></url>
+  <!-- Main -->
+  <url><loc>https://techiq.ai/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
+
+  <!-- Category Pages -->
+  <url><loc>https://techiq.ai/laptops</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://techiq.ai/components</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://techiq.ai/networking</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://techiq.ai/smartphones</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+
+  <!-- Calculator & Tool Pages -->
+  <url><loc>https://techiq.ai/pc-build-calculator</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://techiq.ai/psu-calculator</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://techiq.ai/storage-calculator</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://techiq.ai/internet-speed-estimator</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://techiq.ai/battery-life-calculator</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://techiq.ai/gpu-comparison</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+
+  <!-- Guides Hub -->
+  <url><loc>https://techiq.ai/guides</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+
+  <!-- Article Pages -->
+  <url><loc>https://techiq.ai/best-laptop-for-programming-under-1000</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://techiq.ai/how-to-fix-slow-computer-performance</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://techiq.ai/what-gpu-do-you-need-for-gaming</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://techiq.ai/how-to-speed-up-internet-connection</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://techiq.ai/ssd-vs-hdd-which-should-you-choose</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://techiq.ai/how-to-build-a-pc-step-by-step</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://techiq.ai/why-phone-battery-drains-fast-and-fixes</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://techiq.ai/ram-upgrade-guide</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://techiq.ai/how-to-choose-monitor-for-gaming</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://techiq.ai/best-budget-gaming-pc-builds</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://techiq.ai/wifi-vs-ethernet-which-is-better</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://techiq.ai/what-is-good-internet-speed</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://techiq.ai/how-to-upgrade-pc-storage-ssd-guide</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://techiq.ai/20-most-common-computer-problems-and-fixes</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://techiq.ai/how-to-protect-pc-from-viruses-malware</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://techiq.ai/gaming-pc-vs-console-total-cost-of-ownership</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://techiq.ai/how-to-choose-right-cpu</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://techiq.ai/best-smartphones-for-the-money</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://techiq.ai/how-to-set-up-home-network</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://techiq.ai/psu-buying-guide</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+
+  <!-- Trust & Info Pages -->
+  <url><loc>https://techiq.ai/about</loc><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://techiq.ai/contact</loc><changefreq>yearly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://techiq.ai/privacy-policy</loc><changefreq>yearly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://techiq.ai/terms-of-use</loc><changefreq>yearly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://techiq.ai/disclaimer</loc><changefreq>yearly</changefreq><priority>0.4</priority></url>
 </urlset>

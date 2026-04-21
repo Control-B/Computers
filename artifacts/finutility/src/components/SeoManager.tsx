@@ -10,71 +10,75 @@ interface MetaEntry {
 
 const metaByPath: Record<string, MetaEntry> = {
   "/": {
-    title: "Gardens — Free Home & Garden Calculators, Cost Guides & Expert Advice",
-    description: "Free home and garden cost calculators for roofing, painting, lawn care, fencing, and renovation. Expert guides with real-world cost ranges to help you plan smarter projects.",
+    title: "TechIQ — Free Computer & Electronics Calculators, Buying Guides & Expert Advice",
+    description: "Free computers and electronics tools: PC build cost calculator, PSU wattage estimator, GPU comparison, storage calculator, internet speed estimator, and 20+ expert guides. Make smarter tech decisions.",
   },
-  "/home-improvement": {
-    title: "Home Improvement Tools & Guides | Gardens",
-    description: "Home improvement calculators and guides covering renovation costs, painting, faucet repair, winterization, and DIY vs. contractor decisions.",
+  "/laptops": {
+    title: "Laptop & PC Buying Guides, Tools & Specs | TechIQ",
+    description: "Laptop and PC buying guides, spec comparisons, and tools. Learn which specs matter, common mistakes to avoid, and how to get the best value on your next laptop or desktop.",
   },
-  "/garden": {
-    title: "Gardening Tools & Guides | Gardens",
-    description: "Garden planning calculators and expert guides for raised beds, planting layouts, spring prep, and choosing the right plants for your climate.",
+  "/components": {
+    title: "PC Components & Builds: CPU, GPU, RAM Guides | TechIQ",
+    description: "Component guides and calculators for PC builders. Compare CPUs, GPUs, and RAM, calculate build costs, and avoid compatibility mistakes with expert guides.",
   },
-  "/exterior": {
-    title: "Exterior & Curb Appeal Tools | Gardens",
-    description: "Exterior cost calculators and guides for roofing, fencing, and landscaping projects. Compare materials, get cost benchmarks, and avoid common mistakes.",
+  "/networking": {
+    title: "Networking & Internet Guides: WiFi, Speed, Setup | TechIQ",
+    description: "Networking and internet guides covering WiFi optimization, internet speed requirements, home network setup, and troubleshooting slow connections.",
+  },
+  "/smartphones": {
+    title: "Smartphone & Tablet Buying Guides | TechIQ",
+    description: "Smartphone and tablet buying guides, battery life estimator, and spec comparisons to help you choose the right device and avoid overspending.",
   },
   "/guides": {
-    title: "Home & Garden Guides | Gardens",
-    description: "Practical home improvement and gardening guides using the Problem → Solution → Benefit framework with real-world STAR scenarios and cost estimates.",
+    title: "Computer & Electronics Expert Guides | TechIQ",
+    description: "In-depth tech guides using the Problem → Solution → Benefit framework with real-world STAR scenarios. Covers laptops, PCs, components, networking, and smartphones.",
   },
-  "/roof-cost-calculator": {
-    title: "Roof Cost Calculator — Estimate Roof Replacement Cost | Gardens",
-    description: "Free roof cost calculator. Compare asphalt, metal, tile, and slate roofing costs by sq ft before getting contractor quotes. Includes labor, materials, and removal.",
+  "/pc-build-calculator": {
+    title: "PC Build Cost Calculator — Estimate Your Gaming PC Budget | TechIQ",
+    description: "Free PC build cost calculator. Estimate total build cost by selecting CPU, GPU, RAM, storage, and peripherals. Includes performance tier estimates and budget optimization tips.",
   },
-  "/paint-calculator": {
-    title: "Paint Calculator — How Much Paint Do I Need? | Gardens",
-    description: "Calculate exactly how many gallons of paint you need for any room or exterior project. Accounts for wall area, coats, coverage rate, and waste factor.",
+  "/psu-calculator": {
+    title: "PSU Wattage Calculator — Find the Right Power Supply | TechIQ",
+    description: "Calculate the correct PSU wattage for your PC build. Enter CPU TDP, GPU TDP, and component count to get a safe, efficient power supply recommendation.",
   },
-  "/lawn-care-calculator": {
-    title: "Lawn Care Cost Calculator | Gardens",
-    description: "Estimate annual lawn care costs by lawn size and services. Compare DIY vs. professional lawn care and find where you can save the most.",
+  "/storage-calculator": {
+    title: "Storage Needs Calculator — How Much SSD or HDD Storage Do You Need? | TechIQ",
+    description: "Calculate how much storage you need for games, applications, photos, and videos. Get SSD vs HDD recommendations and estimated costs.",
   },
-  "/fence-cost-calculator": {
-    title: "Fence Cost Calculator — Estimate Fence Installation Cost | Gardens",
-    description: "Free fence cost calculator for wood, vinyl, chain link, and aluminum fencing. Includes materials, labor, gates, and posts.",
+  "/internet-speed-estimator": {
+    title: "Internet Speed Estimator — How Much Bandwidth Do You Actually Need? | TechIQ",
+    description: "Estimate the internet speed you need based on your activities: 4K streaming, video calls, gaming, smart home devices, and more. Get plan recommendations.",
   },
-  "/garden-planting-calculator": {
-    title: "Garden Planting Calculator — Plants, Soil & Spacing | Gardens",
-    description: "Plan your garden bed layout. Calculate how many plants fit your bed, how much soil you need, and the total setup cost.",
+  "/battery-life-calculator": {
+    title: "Battery Life Calculator — Estimate Smartphone & Laptop Battery Runtime | TechIQ",
+    description: "Estimate real-world battery life for smartphones and laptops based on battery capacity, screen size, usage pattern, and features like 5G and GPS.",
   },
-  "/home-renovation-calculator": {
-    title: "Home Renovation Cost Calculator | Gardens",
-    description: "Estimate home renovation costs by room type and scope. Includes kitchen, bathroom, basement, deck, and whole-house renovation cost ranges with contingency.",
+  "/gpu-comparison": {
+    title: "GPU Comparison Tool — Compare Graphics Cards at Any Resolution | TechIQ",
+    description: "Compare two GPUs by performance score, estimated FPS at 1080p, 1440p, or 4K, and value-per-dollar to find the best graphics card for your budget.",
   },
   "/privacy-policy": {
-    title: "Privacy Policy | Gardens",
-    description: "How Gardens handles calculator data, analytics, and cookies.",
+    title: "Privacy Policy | TechIQ",
+    description: "How TechIQ handles calculator data, analytics, and cookies. We never sell your data.",
     robots: "noindex,follow",
   },
   "/terms-of-use": {
-    title: "Terms of Use | Gardens",
-    description: "Terms governing use of Gardens calculators, guides, and educational content.",
+    title: "Terms of Use | TechIQ",
+    description: "Terms governing use of TechIQ calculators, guides, and educational content.",
     robots: "noindex,follow",
   },
   "/disclaimer": {
-    title: "Disclaimer | Gardens",
-    description: "Educational-use and not-professional-advice disclaimer for Gardens calculators and content.",
+    title: "Disclaimer | TechIQ",
+    description: "Educational-use and not-professional-advice disclaimer for TechIQ calculators and content.",
     robots: "noindex,follow",
   },
   "/about": {
-    title: "About Gardens",
-    description: "Learn what Gardens is, who it's for, and why we focus on practical home and garden tools and guides.",
+    title: "About TechIQ — Computer & Electronics Decision Platform",
+    description: "Learn about TechIQ: free computer and electronics tools and guides built to help everyday users make smarter tech decisions without marketing hype.",
   },
   "/contact": {
-    title: "Contact Gardens",
-    description: "Get in touch with Gardens for support, feedback, or general questions.",
+    title: "Contact TechIQ",
+    description: "Get in touch with TechIQ for support, feedback, or general questions.",
     robots: "noindex,follow",
   },
 };
@@ -97,12 +101,12 @@ export function SeoManager() {
     const guide = guidesBySlug[guideSlug];
     const entry = guide
       ? {
-          title: `${guide.title} | Gardens`,
+          title: `${guide.title} | TechIQ`,
           description: guide.description,
         }
       : metaByPath[pathname] ?? {
-          title: "Gardens — Home & Garden Tools and Guides",
-          description: "Free home improvement and gardening calculators, cost guides, and expert advice.",
+          title: "TechIQ — Computer & Electronics Tools and Guides",
+          description: "Free computer and electronics calculators, buying guides, troubleshooting help, and expert advice to make smarter tech decisions.",
         };
 
     document.title = entry.title;

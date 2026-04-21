@@ -5,4 +5,4 @@ Disallow: /privacy-policy
 Disallow: /terms-of-use
 Disallow: /disclaimer
 
-Sitemap: https://gardens.ai/sitemap.xml
+Sitemap: https://techiq.ai/sitemap.xml

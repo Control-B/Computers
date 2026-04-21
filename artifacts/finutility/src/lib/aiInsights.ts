@@ -1,111 +1,91 @@
 /**
- * aiInsights.ts — Data-driven home & garden insights generated from calculator inputs.
+ * aiInsights.ts — Data-driven tech insights generated from calculator inputs.
  */
 
-export function generateRoofCostInsight(
+export function generatePCBuildInsight(
   totalCost: number,
-  material: string,
-  squares: number
+  gpu: string,
+  resolution: string,
+  estimatedFPS: string
 ): string {
   if (totalCost === 0)
-    return "Enter your roof dimensions to see a detailed cost estimate by material type — and learn which choice delivers the best long-term value for your climate.";
+    return "Configure your build components to see a cost estimate, performance tier, and targeted resolution — and learn how to allocate your budget for the best gaming experience.";
 
-  const materialLabels: Record<string, string> = {
-    asphalt_3tab: "3-tab asphalt shingles",
-    asphalt_architectural: "architectural asphalt shingles",
-    metal_standing_seam: "standing seam metal roofing",
-    metal_corrugated: "corrugated metal roofing",
-    wood_shake: "wood shake roofing",
-    tile_concrete: "concrete tile roofing",
-    tile_clay: "clay tile roofing",
-    slate: "natural slate roofing",
-  };
-
-  const lifespans: Record<string, string> = {
-    asphalt_3tab: "15–20 years",
-    asphalt_architectural: "25–30 years",
-    metal_standing_seam: "40–70 years",
-    metal_corrugated: "30–45 years",
-    wood_shake: "20–30 years",
-    tile_concrete: "40–50 years",
-    tile_clay: "50+ years",
-    slate: "75–150 years",
-  };
-
-  const label = materialLabels[material] ?? "roofing";
-  const lifespan = lifespans[material] ?? "20–30 years";
-
-  return `Your estimated ${label} replacement for ${squares} squares is $${totalCost.toLocaleString()}. This material has an expected lifespan of ${lifespan}. Always get at least 3 contractor quotes and verify each contractor is licensed and insured. Proper attic ventilation can extend any roof's life by 5–10 years — ask contractors to assess yours during the estimate.`;
+  const gpuLabel = gpu.replace(/_/g, " ").toUpperCase();
+  return `Your estimated build cost is $${totalCost.toLocaleString()} with a ${gpuLabel} targeting ${resolution} gaming at ${estimatedFPS}. Pro tip: GPU should represent 30–40% of your gaming build budget. Verify all component compatibility at PCPartPicker before ordering — it flags socket, RAM generation, and case clearance conflicts automatically. Consider buying components individually when major sales occur (Black Friday, Prime Day) rather than all at once.`;
 }
 
-export function generatePaintInsight(
-  gallons: number,
-  totalCost: number,
-  area: number
+export function generatePSUInsight(
+  baseWattage: number,
+  recommendedWattage: number,
+  suggestedUnit: string
 ): string {
-  if (gallons === 0)
-    return "Enter your wall area to calculate exactly how much paint to buy — and see tips for achieving a professional finish.";
+  if (baseWattage === 0)
+    return "Enter your CPU and GPU TDP values to calculate the right PSU wattage for your build — and see which specific units offer the best reliability at each tier.";
 
-  return `You'll need approximately ${gallons} gallons to cover ${area.toLocaleString()} sq ft. Buying quality paint in the $45–$65/gallon range typically results in better coverage per gallon than budget options, often meaning fewer coats — so the per-square-foot cost is similar or lower. Have all gallons mixed at the same time to ensure consistent color. Your estimated material cost is $${totalCost.toLocaleString()}. Professional painters charge $2–$4 per sq ft — doing it yourself saves $${Math.round(area * 3 - totalCost).toLocaleString()} on this project.`;
+  const savings = Math.round(recommendedWattage * 0.10 * 0.12 * 8760 / 1000); // rough annual electricity savings vs. 80 Bronze
+  return `Your system draws approximately ${baseWattage}W at peak load. We recommend a ${recommendedWattage}W unit for stability and longevity headroom. Suggested: ${suggestedUnit}. An 80+ Gold PSU uses ~8% less electricity than Bronze-rated units — saving roughly $${savings}/year over Bronze alternatives. More importantly, a quality PSU protects every other component — this is not where to save $30 in a build.`;
 }
 
-export function generateLawnCareInsight(
-  annualCost: number,
-  lawnSize: number,
-  diyAnnual: number
+export function generateStorageInsight(
+  totalNeededGB: number,
+  recommendedGB: number,
+  estimatedCost: number
 ): string {
-  if (annualCost === 0)
-    return "Enter your lawn size and select services to see your annual lawn care cost and DIY savings potential.";
+  if (totalNeededGB === 0)
+    return "Enter your storage requirements to see which drive type and capacity delivers the best value for your specific content library.";
 
-  const savings = annualCost - diyAnnual;
-  return `Your annual lawn care cost is estimated at $${annualCost.toLocaleString()} for your ${lawnSize.toLocaleString()} sq ft lawn. Handling mowing, fertilizing, and overseeding yourself could reduce this to approximately $${diyAnnual.toLocaleString()} — saving $${savings.toLocaleString()} per year. Services worth keeping professional: core aeration (requires specialized equipment) and disease/pest diagnosis (mistakes are expensive). A robotic mower ($400–$800 one-time) can eliminate ongoing mowing costs entirely within 1–2 seasons.`;
+  const hddCost = Math.ceil(recommendedGB / 1000) * 35; // rough HDD cost
+  const savings = hddCost - estimatedCost;
+  const typeNote = recommendedGB <= 2000 ? "NVMe SSD for primary storage" : "NVMe primary + HDD for media storage";
+
+  return `Your estimated storage need is ${totalNeededGB}GB. We recommend a ${recommendedGB}GB ${typeNote} at approximately $${estimatedCost}. If you game frequently, prioritize NVMe for your OS and most-played titles — load times drop 5–10× vs. HDD. Store media (photos, video, archives) on a cheaper HDD or external drive to balance performance and cost.`;
 }
 
-export function generateFenceCostInsight(
-  totalCost: number,
-  linearFeet: number,
-  material: string
+export function generateInternetSpeedInsight(
+  recommendedMbps: number,
+  suggestedPlan: string,
+  hasGaming: boolean
 ): string {
-  if (totalCost === 0)
-    return "Enter your fence dimensions to get a realistic material and labor estimate before calling contractors.";
+  if (recommendedMbps === 0)
+    return "Select your household activities to see the minimum internet speed you actually need — and find out if you're overpaying for your current plan.";
 
-  const materialLabels: Record<string, string> = {
-    wood_privacy: "wood privacy fence",
-    wood_picket: "wood picket fence",
-    vinyl: "vinyl fence",
-    chain_link: "chain link fence",
-    aluminum: "aluminum fence",
-    wrought_iron: "wrought iron fence",
-    split_rail: "split rail fence",
-    bamboo: "bamboo fence",
-  };
+  const gamingNote = hasGaming
+    ? " For gaming specifically: latency (ping) matters more than speed. Use Ethernet instead of WiFi for your gaming device to eliminate WiFi-induced lag spikes — a $12 Ethernet cable often improves gaming more than a faster internet plan."
+    : "";
 
-  const label = materialLabels[material] ?? "fence";
-  const costPerFt = totalCost / linearFeet;
-
-  return `Your estimated ${label} project is $${totalCost.toLocaleString()} for ${linearFeet} linear feet ($${costPerFt.toFixed(0)}/ft all-in). Before purchasing materials: call 811 to mark utilities, confirm property lines against your survey, and check HOA approval if applicable. DIY fence installation saves 40–60% in labor costs — plan for 1–2 weekends and a rented post hole digger ($85/day) for this size project.`;
+  return `Your household needs approximately ${recommendedMbps} Mbps for comfortable simultaneous use. Recommended: ${suggestedPlan}.${gamingNote} Before upgrading your plan, test your actual speeds at fast.com (wired and WiFi). If your WiFi speed is less than 60% of your wired speed, a router upgrade will deliver more improvement than a plan upgrade.`;
 }
 
-export function generateGardenInsight(
-  plantsNeeded: number,
-  estimatedCost: number,
-  bedArea: number
+export function generateBatteryInsight(
+  estimatedHours: number,
+  deviceType: string,
+  killerCount: number
 ): string {
-  if (plantsNeeded === 0)
-    return "Enter your garden bed dimensions and plant spacing to calculate how many plants you need and what it will cost.";
+  if (estimatedHours === 0)
+    return "Enter your device specs and usage patterns to see a realistic battery life estimate — and identify which habits are draining your battery fastest.";
 
-  const valuePerPlant = estimatedCost > 0 ? (estimatedCost / plantsNeeded).toFixed(2) : "0";
+  const deviceLabel = deviceType === "phone" ? "phone" : deviceType === "laptop" ? "laptop" : "tablet";
+  const killerNote = killerCount > 0
+    ? ` ${killerCount} drain factor${killerCount > 1 ? "s" : ""} detected — addressing these could add 1.5–3 hours to your estimated life.`
+    : " Your current settings appear well-optimized for battery life.";
 
-  return `Your ${bedArea.toFixed(0)} sq ft garden bed fits ${plantsNeeded} plants at proper spacing. Starting cost is approximately $${estimatedCost.toLocaleString()} including plants and soil. Tip: buying starter plants ($3–$6 each) saves 6–8 weeks vs. starting from seed but costs more upfront. If this is a new raised bed, add 15–20% to soil volume estimates for settling. Properly spaced plants in amended soil typically yield 25–40% more produce than crowded, in-ground equivalents.`;
+  return `Your ${deviceLabel} is estimated to last ${estimatedHours} hours under your current usage pattern.${killerNote} For best long-term battery health: charge to 80% for daily use and avoid letting it drop below 15% regularly. Most premium devices include a battery health limit setting — enable it to significantly extend your battery's lifespan over 2+ years.`;
 }
 
-export function generateRenovationInsight(
-  totalEstimate: number,
-  contingency: number,
-  rooms: number
+export function generateGPUComparisonInsight(
+  gpu1: string,
+  gpu2: string,
+  performanceDiff: number,
+  winner: string,
+  recommendation: string
 ): string {
-  if (totalEstimate === 0)
-    return "Select rooms and renovation scope to get a realistic starting budget before talking to contractors.";
+  if (performanceDiff === 0)
+    return "Select two GPUs and your target resolution to compare their performance and value per dollar at your specific gaming configuration.";
 
-  return `Your estimated renovation budget for ${rooms} room${rooms > 1 ? "s" : ""} is $${totalEstimate.toLocaleString()}, including a $${contingency.toLocaleString()} contingency buffer. The contingency is not optional — experienced contractors add 15–20% because older homes almost always reveal surprises once walls are opened. Get at least 3 written quotes, check contractor licenses at your state contractor board, and verify they carry general liability and workers' comp insurance before signing anything.`;
+  if (performanceDiff < 8) {
+    return `Performance difference between ${gpu1.toUpperCase()} and ${gpu2.toUpperCase()} is ${performanceDiff}% — practically imperceptible during gameplay. ${recommendation} Also consider: VRAM capacity, driver support quality, and noise levels when performance is this close.`;
+  }
+
+  return `${winner} leads by ${performanceDiff}% at your target resolution. ${recommendation} Remember: GPU performance scales with resolution — a GPU that seems overkill at 1080p becomes the right choice if you upgrade to 1440p in the next 1–2 years.`;
 }

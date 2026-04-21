@@ -1,107 +1,103 @@
+/**
+ * nlParser.ts — Parses natural-language tech queries into calculator routes + prefill params.
+ */
+
 export interface ParsedIntent {
   calculator: string;
   params: Record<string, string>;
 }
 
-export function parseNaturalLanguage(input: string): ParsedIntent | null {
-  const lowerInput = input.toLowerCase();
+export function parseNaturalLanguage(query: string): ParsedIntent | null {
+  const q = query.toLowerCase().trim();
 
-  // Roof cost: "roof cost for 2000 sq ft house" or "replace roof 1500 sqft"
-  if (lowerInput.includes("roof") && (lowerInput.includes("cost") || lowerInput.includes("replace") || lowerInput.includes("install"))) {
-    const areaMatch = lowerInput.match(/([\d,]+)\s*(?:sq\.?\s*ft|square\s*feet)/);
-    const materialMatch = lowerInput.includes("metal") ? "metal_standing_seam"
-      : lowerInput.includes("tile") ? "tile_concrete"
-      : lowerInput.includes("slate") ? "slate"
-      : lowerInput.includes("wood") ? "wood_shake"
-      : "asphalt_architectural";
-
-    return {
-      calculator: "/roof-cost-calculator",
-      params: {
-        area: areaMatch ? areaMatch[1].replace(/,/g, "") : "",
-        material: materialMatch,
-      },
-    };
+  // PC Build Calculator
+  if (
+    q.includes("pc build") || q.includes("build a pc") || q.includes("gaming pc") ||
+    q.includes("build cost") || q.includes("computer build") || q.includes("custom pc")
+  ) {
+    const params: Record<string, string> = {};
+    if (q.includes("budget") || q.includes("cheap") || q.includes("$500")) {
+      params.gpu = "rx6600";
+      params.cpu = "ryzen5_5600";
+    } else if (q.includes("mid") || q.includes("$800") || q.includes("1000")) {
+      params.gpu = "rtx_4060ti";
+      params.cpu = "ryzen5_7600x";
+    } else if (q.includes("high") || q.includes("1440p") || q.includes("$1200") || q.includes("1400")) {
+      params.gpu = "rtx_4070super";
+      params.cpu = "ryzen7_7700x";
+    }
+    return { calculator: "/pc-build-calculator", params };
   }
 
-  // Paint: "how much paint for 400 sq ft" or "paint 3 rooms"
-  if (lowerInput.includes("paint") && (lowerInput.includes("gallon") || lowerInput.includes("sq") || lowerInput.includes("room") || lowerInput.includes("how much"))) {
-    const areaMatch = lowerInput.match(/([\d,]+)\s*(?:sq\.?\s*ft|square\s*feet)/);
-    const roomMatch = lowerInput.match(/([\d]+)\s*rooms?/);
-
-    return {
-      calculator: "/paint-calculator",
-      params: {
-        area: areaMatch ? areaMatch[1].replace(/,/g, "") : "",
-        rooms: roomMatch ? roomMatch[1] : "",
-      },
-    };
+  // PSU Wattage Calculator
+  if (
+    q.includes("psu") || q.includes("power supply") || q.includes("wattage") ||
+    q.includes("how many watts") || q.includes("power consumption")
+  ) {
+    const params: Record<string, string> = {};
+    if (q.includes("rtx 4090") || q.includes("4090")) params.gpuTDP = "450";
+    else if (q.includes("rtx 4080") || q.includes("4080")) params.gpuTDP = "320";
+    else if (q.includes("rtx 4070") || q.includes("4070")) params.gpuTDP = "200";
+    else if (q.includes("rtx 4060") || q.includes("4060")) params.gpuTDP = "115";
+    else if (q.includes("rx 7900") || q.includes("7900")) params.gpuTDP = "330";
+    return { calculator: "/psu-calculator", params };
   }
 
-  // Lawn care: "lawn care cost for 5000 sq ft" or "mowing service 1/4 acre"
-  if (lowerInput.includes("lawn") && (lowerInput.includes("cost") || lowerInput.includes("care") || lowerInput.includes("mow") || lowerInput.includes("service"))) {
-    const areaMatch = lowerInput.match(/([\d,]+)\s*(?:sq\.?\s*ft|square\s*feet)/)
-      || lowerInput.match(/([\d.]+)\s*acre/);
-
-    return {
-      calculator: "/lawn-care-calculator",
-      params: {
-        area: areaMatch ? String(parseFloat(areaMatch[1].replace(/,/g, "")) * (lowerInput.includes("acre") ? 43560 : 1)) : "",
-      },
-    };
+  // Storage Calculator
+  if (
+    q.includes("storage") || q.includes("ssd") || q.includes("hard drive") ||
+    q.includes("how much space") || q.includes("disk space") || q.includes("hdd")
+  ) {
+    const params: Record<string, string> = {};
+    const gameMatch = q.match(/(\d+)\s*game/);
+    if (gameMatch) params.gameCount = gameMatch[1];
+    return { calculator: "/storage-calculator", params };
   }
 
-  // Fence: "fence cost for 150 linear feet" or "install wood fence 200 ft"
-  if (lowerInput.includes("fence") && (lowerInput.includes("cost") || lowerInput.includes("install") || lowerInput.includes("linear") || lowerInput.includes("feet") || lowerInput.includes("ft"))) {
-    const lengthMatch = lowerInput.match(/([\d,]+)\s*(?:linear\s*)?(?:feet|ft)/);
-    const materialMatch = lowerInput.includes("vinyl") ? "vinyl"
-      : lowerInput.includes("chain") ? "chain_link"
-      : lowerInput.includes("metal") ? "aluminum"
-      : lowerInput.includes("iron") ? "wrought_iron"
-      : "wood_privacy";
-
-    return {
-      calculator: "/fence-cost-calculator",
-      params: {
-        linearFeet: lengthMatch ? lengthMatch[1].replace(/,/g, "") : "",
-        material: materialMatch,
-      },
-    };
+  // Internet Speed Estimator
+  if (
+    q.includes("internet speed") || q.includes("bandwidth") || q.includes("what speed") ||
+    q.includes("streaming speed") || q.includes("mbps") || q.includes("internet plan")
+  ) {
+    const params: Record<string, string> = {};
+    if (q.includes("4k") || q.includes("4 k")) params.streaming4K = "2";
+    if (q.includes("gaming") || q.includes("game")) params.gaming = "1";
+    if (q.includes("work") || q.includes("zoom") || q.includes("teams")) params.workFromHome = "1";
+    return { calculator: "/internet-speed-estimator", params };
   }
 
-  // Garden / planting: "garden bed 4x8" or "plant tomatoes in 10x5 bed"
-  if ((lowerInput.includes("garden") || lowerInput.includes("plant") || lowerInput.includes("bed")) &&
-    (lowerInput.includes("x") || lowerInput.includes("by") || lowerInput.includes("sqft") || lowerInput.includes("sq ft"))) {
-    const dimMatch = lowerInput.match(/([\d.]+)\s*[x×by]\s*([\d.]+)/);
-
-    return {
-      calculator: "/garden-planting-calculator",
-      params: {
-        length: dimMatch ? dimMatch[1] : "",
-        width: dimMatch ? dimMatch[2] : "",
-        plant: lowerInput.includes("tomato") ? "tomatoes"
-          : lowerInput.includes("lettuce") ? "lettuce"
-          : lowerInput.includes("pepper") ? "peppers"
-          : lowerInput.includes("carrot") ? "carrots"
-          : lowerInput.includes("herb") ? "herbs"
-          : "",
-      },
-    };
+  // Battery Life Calculator
+  if (
+    q.includes("battery life") || q.includes("battery drain") || q.includes("battery") ||
+    q.includes("how long") && (q.includes("phone") || q.includes("laptop") || q.includes("charge"))
+  ) {
+    const params: Record<string, string> = {};
+    if (q.includes("phone") || q.includes("iphone") || q.includes("android")) {
+      params.deviceType = "phone";
+    } else if (q.includes("laptop") || q.includes("notebook")) {
+      params.deviceType = "laptop";
+    } else if (q.includes("tablet") || q.includes("ipad")) {
+      params.deviceType = "tablet";
+    }
+    return { calculator: "/battery-life-calculator", params };
   }
 
-  // Renovation: "renovate kitchen" or "bathroom remodel cost"
-  if ((lowerInput.includes("renovate") || lowerInput.includes("remodel") || lowerInput.includes("renovation")) &&
-    (lowerInput.includes("kitchen") || lowerInput.includes("bathroom") || lowerInput.includes("bedroom") || lowerInput.includes("basement") || lowerInput.includes("house"))) {
-    const roomMatch = lowerInput.includes("kitchen") ? "kitchen"
-      : lowerInput.includes("bathroom") ? "bathroom"
-      : lowerInput.includes("basement") ? "basement"
-      : lowerInput.includes("bedroom") ? "bedroom"
-      : "whole_house";
-
-    return {
-      calculator: "/home-renovation-calculator",
-      params: { room: roomMatch },
-    };
+  // GPU Comparison
+  if (
+    q.includes("gpu") || q.includes("graphics card") || q.includes("vs rtx") ||
+    q.includes("vs rx") || q.includes("compare gpu") || q.includes("which gpu")
+  ) {
+    const params: Record<string, string> = {};
+    if (q.includes("1080p")) params.resolution = "1080p";
+    else if (q.includes("1440p") || q.includes("2k")) params.resolution = "1440p";
+    else if (q.includes("4k")) params.resolution = "4K";
+    // Try to parse GPU names
+    const rtxMatch = q.match(/rtx\s*(\d{4}(?:\s*(?:super|ti))?)/i);
+    if (rtxMatch) {
+      const name = "rtx_" + rtxMatch[1].replace(/\s+/g, "_").toLowerCase();
+      params.gpu1 = name;
+    }
+    return { calculator: "/gpu-comparison", params };
   }
 
   return null;

@@ -19,259 +19,311 @@ export interface TrustContentEntry {
 
 export const homeTrustContent: TrustContentEntry = {
   eyebrow: "Trust and clarity",
-  heading: "Gardens is built for homeowners who want real answers, not vague estimates",
+  heading: "TechIQ is built for buyers who want accurate information, not marketing hype",
   intro:
-    "Gardens is designed to help you move from a home or garden question to a useful calculator and practical guide — without account walls, exaggerated claims, or confusing jargon.",
+    "TechIQ is designed to help you move from a technology question to a useful calculator and practical guide — without account walls, exaggerated claims, or confusing jargon.",
   surface: "light",
-  accent: "emerald",
+  accent: "blue",
   items: [
     {
-      title: "Education before pressure",
+      title: "Education before purchase",
       description: "Every calculator is paired with a plain-English guide explaining what the numbers mean and what to do with them.",
       icon: BookMarked,
     },
     {
       title: "Private by default",
-      description: "All calculations happen in your browser. No account required, no data stored, no tracking of your project details.",
+      description: "All calculations happen in your browser. No account required, no data stored, no tracking of your component choices.",
       icon: Lock,
     },
     {
-      title: "Honest estimates",
-      description: "Cost ranges are based on real market data. We flag where local costs vary significantly so you know when to get a local quote.",
+      title: "Honest benchmarks",
+      description: "Performance estimates are based on real hardware benchmarks. We flag where regional pricing and availability vary significantly.",
       icon: ShieldCheck,
     },
   ],
 };
 
-export const homeImprovementTrustContent: TrustContentEntry = {
+export const laptopsTrustContent: TrustContentEntry = {
   eyebrow: "Trust and disclosure",
-  heading: "Home improvement estimates are planning tools — not contractor quotes",
+  heading: "Laptop recommendations are based on performance data, not affiliate arrangements",
   intro:
-    "Our calculators provide realistic cost benchmarks based on national averages and material costs. Your actual project cost depends on local labor rates, material availability, and specific site conditions.",
+    "Our calculator outputs provide realistic benchmarks based on published hardware specifications and independent reviews. Your actual laptop performance depends on thermal design, software optimization, and real-world workloads.",
   surface: "dark",
-  accent: "emerald",
+  accent: "blue",
   items: [
     {
-      title: "Benchmark, not quote",
-      description: "Estimates help you know if a contractor quote is reasonable — always get 3 quotes before committing to any major project.",
+      title: "Benchmark, not promise",
+      description: "Performance estimates reflect manufacturer specifications and independent reviews — actual performance varies by workload and software configuration.",
       icon: Eye,
     },
     {
-      title: "Permit requirements vary",
-      description: "Building codes and permit requirements differ by city and county. Always verify requirements with your local building department.",
+      title: "Pricing changes frequently",
+      description: "Laptop prices shift daily. Always verify current pricing before purchasing — our ranges are directional benchmarks.",
       icon: CircleAlert,
     },
     {
-      title: "Professional verification still matters",
-      description: "Major structural, electrical, plumbing, and gas work should always be performed by licensed professionals.",
+      title: "Compatibility still matters",
+      description: "RAM upgradability, storage slot availability, and port selection should be verified against your specific model's service manual.",
       icon: ShieldCheck,
     },
   ],
 };
 
-export const gardenTrustContent: TrustContentEntry = {
+export const componentsTrustContent: TrustContentEntry = {
   eyebrow: "Trust and disclosure",
-  heading: "Garden planning tools are a starting point — local conditions determine real results",
+  heading: "Component compatibility must be verified before purchasing — our tool identifies the right starting point",
   intro:
-    "Plant spacing, soil requirements, and planting times in our guides are based on general best practices. Your specific climate, soil type, and microclimate will affect actual results.",
+    "PC component compatibility depends on specific socket types, chipset support, and BIOS versions. Always verify compatibility using PCPartPicker or the manufacturer's compatibility list before completing a build purchase.",
   surface: "dark",
-  accent: "emerald",
+  accent: "blue",
   items: [
     {
-      title: "Climate zones vary",
-      description: "USDA hardiness zones are a guide — local microclimates, last frost dates, and soil type all affect what grows well in your specific yard.",
-      icon: Eye,
+      title: "Verify before ordering",
+      description: "Always cross-reference component compatibility using PCPartPicker.com, which provides automated compatibility checking across all major components.",
+      icon: FileCheck,
     },
     {
-      title: "Soil testing before amending",
-      description: "We recommend testing your soil pH and composition before purchasing amendments — guessing often leads to over- or under-treatment.",
+      title: "Prices fluctuate significantly",
+      description: "GPU and CPU prices can change 10–20% within days based on availability and demand. Our estimates are benchmarks, not quotes.",
       icon: CircleAlert,
     },
     {
-      title: "Local nurseries know best",
-      description: "A local independent nursery is the best resource for plant selection, timing, and soil advice specific to your area.",
-      icon: BookMarked,
+      title: "BIOS updates may be required",
+      description: "New CPUs on existing motherboards often require BIOS updates. Verify your board's CPU support list before pairing.",
+      icon: ShieldCheck,
     },
   ],
 };
 
-export const exteriorTrustContent: TrustContentEntry = {
+export const networkingTrustContent: TrustContentEntry = {
   eyebrow: "Trust and disclosure",
-  heading: "Exterior project estimates depend heavily on local labor and material costs",
+  heading: "Network speed estimates depend on your specific router, ISP plan, and home layout",
   intro:
-    "Roofing, fencing, and exterior painting costs vary significantly by region. Our calculators provide national average baselines — compare against local quotes before finalizing any project budget.",
+    "Our internet speed recommendations are based on typical device requirements. Your actual speeds depend on ISP delivery consistency, router hardware, WiFi interference, and distance to the router.",
   surface: "dark",
-  accent: "emerald",
+  accent: "blue",
   items: [
     {
-      title: "Regional cost variation",
-      description: "Labor costs in high-cost metro areas can be 40–70% higher than national averages shown in calculators.",
+      title: "Test before upgrading",
+      description: "Run speed tests at multiple locations in your home before concluding you need a faster ISP plan — router and WiFi configuration issues are often the real bottleneck.",
       icon: Eye,
     },
     {
-      title: "HOA and permit requirements",
-      description: "Exterior changes often require HOA approval and building permits. Verify requirements before purchasing materials.",
+      title: "ISP delivery varies",
+      description: "Advertised plan speeds are maximums, not guarantees. ISP performance during peak hours can be 30–60% lower than rated speeds in congested areas.",
+      icon: CircleAlert,
+    },
+    {
+      title: "Security configuration is your responsibility",
+      description: "Network security best practices (changing default passwords, enabling WPA3, guest networks) are the homeowner's responsibility — ISPs configure for convenience, not security.",
+      icon: ShieldCheck,
+    },
+  ],
+};
+
+export const smartphonesTrustContent: TrustContentEntry = {
+  eyebrow: "Trust and disclosure",
+  heading: "Smartphone recommendations are based on publicly available specifications and independent reviews",
+  intro:
+    "Phone performance varies by region due to chipset availability (Snapdragon vs. Exynos for Samsung, for example). Camera performance is highly subjective and use-case dependent.",
+  surface: "dark",
+  accent: "blue",
+  items: [
+    {
+      title: "Regional variants differ",
+      description: "Some smartphones ship with different processors in different regions. Verify your region's specific model variant before purchasing.",
+      icon: Eye,
+    },
+    {
+      title: "Carrier unlocked vs. locked",
+      description: "Carrier-locked phones may not work on all networks when switching providers. Confirm unlock policy before purchasing from a carrier.",
+      icon: CircleAlert,
+    },
+    {
+      title: "Software update policies change",
+      description: "Software update commitments are manufacturer promises — verify the current policy directly with the manufacturer at time of purchase.",
+      icon: ShieldCheck,
+    },
+  ],
+};
+
+export const buyingGuidesTrustContent: TrustContentEntry = {
+  eyebrow: "Trust and disclosure",
+  heading: "Buying guides are educational starting points — final decisions should include current pricing and review data",
+  intro:
+    "Technology recommendations in our guides are based on information available at time of writing. Hardware generations release every 6–18 months, and the best value recommendation changes with each release cycle.",
+  surface: "dark",
+  accent: "blue",
+  items: [
+    {
+      title: "Recommendations age quickly",
+      description: "Check the publish and update date on any buying guide. A GPU recommendation from 12 months ago may be superseded by better-value options.",
+      icon: Eye,
+    },
+    {
+      title: "Price history matters",
+      description: "Use CamelCamelCamel or PCPartPicker price history to evaluate whether a sale price represents genuine savings.",
       icon: FileCheck,
     },
     {
-      title: "Licensed contractors for major work",
-      description: "Roofing, structural work, and major exterior renovations should be performed by licensed, insured contractors.",
+      title: "Read long-term user reviews",
+      description: "Launch-day reviews may miss reliability issues that emerge after 6–12 months of real-world use. Check review platforms for post-launch feedback.",
       icon: ShieldCheck,
     },
   ],
 };
 
-export const roofCostTrustContent: TrustContentEntry = {
+export const pcBuildTrustContent: TrustContentEntry = {
   eyebrow: "Trust and disclosure",
-  heading: "Roof cost estimates are benchmarks for evaluating contractor quotes",
+  heading: "PC build cost estimates are benchmarks — actual prices require current retailer verification",
   intro:
-    "This calculator helps you understand the realistic cost range for a roof replacement before you call contractors. Actual quotes will vary based on your specific roof geometry, local labor rates, and material availability.",
+    "Component prices in this calculator reflect typical market rates but change frequently based on supply, demand, and retailer promotions. Always verify current prices across multiple retailers before finalizing your build budget.",
   surface: "light",
-  accent: "emerald",
+  accent: "blue",
   items: [
     {
-      title: "Estimate, not quote",
-      description: "Use this result to identify whether contractor bids are in a reasonable range — not as the final project budget.",
+      title: "Verify current prices",
+      description: "Use PCPartPicker to check live component prices from multiple retailers and catch instant compatibility warnings before ordering.",
       icon: FileCheck,
     },
     {
-      title: "Site-specific factors matter",
-      description: "Roof access difficulty, existing damage, ventilation issues, and local permit fees can all change the final cost.",
+      title: "Compatibility check is essential",
+      description: "This calculator provides budget estimates — detailed compatibility verification (CPU socket, RAM generation, case clearance) is required before purchasing.",
       icon: Eye,
     },
     {
-      title: "Always verify with 3 contractors",
-      description: "For a project this size, getting at least 3 licensed contractor quotes is essential. Verify insurance and check references.",
+      title: "Include all components",
+      description: "Don't forget operating system, peripherals, and monitor in your total budget — our calculator covers core system components only.",
       icon: ShieldCheck,
     },
   ],
 };
 
-export const paintTrustContent: TrustContentEntry = {
+export const psuTrustContent: TrustContentEntry = {
   eyebrow: "Trust and disclosure",
-  heading: "Paint quantity estimates depend on actual wall measurements and paint quality",
+  heading: "PSU wattage calculations are based on typical TDP values — peak draw may differ",
   intro:
-    "This calculator gives you a starting point for how much paint to buy. Coverage rates vary by paint brand, quality, and surface condition. Always check the specific paint can label for its stated coverage rate.",
+    "CPU and GPU TDP values are manufacturer ratings under sustained workloads, not peak power spikes. Our calculator adds headroom to account for this, but specific component power draw can vary based on overclocking, ambient temperature, and load type.",
   surface: "light",
-  accent: "emerald",
+  accent: "blue",
   items: [
     {
-      title: "Coverage rates vary by product",
-      description: "Premium paints often cover 15–20% more area per gallon than budget options. Check the label before calculating.",
+      title: "TDP vs. actual consumption",
+      description: "GPU actual peak power draw can exceed rated TDP by 15–25% during shader-intensive scenes. Our 20–30% headroom recommendation accounts for this.",
       icon: Eye,
     },
     {
-      title: "Surface condition affects consumption",
-      description: "Rough, porous, or previously unpainted surfaces absorb more paint. Add a second coat or primer for best results.",
+      title: "Brand quality matters more than wattage",
+      description: "A Tier-1 650W PSU provides more reliable power than a no-name 800W unit. The wattage rating on cheap PSUs is often overstated or achieved only under ideal conditions.",
       icon: CircleAlert,
     },
     {
-      title: "Buy in the same dye lot",
-      description: "If you need multiple gallons, have them mixed in the same batch to ensure consistent color throughout the project.",
+      title: "Consult PSU tier lists",
+      description: "The Cultists Network PSU tier list and Tom's Hardware PSU reviews provide independent quality ratings that go beyond wattage ratings.",
       icon: ShieldCheck,
     },
   ],
 };
 
-export const lawnCareTrustContent: TrustContentEntry = {
+export const storageTrustContent: TrustContentEntry = {
   eyebrow: "Trust and disclosure",
-  heading: "Lawn care cost estimates are regional averages — local prices vary",
+  heading: "Storage capacity estimates are based on typical file sizes — your actual needs may vary",
   intro:
-    "Lawn care service costs depend on your region, lawn condition, and service provider. The estimates here are based on national averages for a well-maintained lawn in a mid-cost region.",
+    "File size estimates in this calculator use typical averages. RAW photo files, 4K video footage, and uncompressed audio require significantly more storage than compressed equivalents. Adjust the calculator inputs to match your actual file workflow.",
   surface: "light",
-  accent: "emerald",
+  accent: "blue",
   items: [
     {
-      title: "Regional price variation",
-      description: "Lawn care costs in urban markets can be 30–50% higher than rural or suburban averages shown in the calculator.",
+      title: "Content creator adjustments needed",
+      description: "RAW photo files are 4–8× larger than JPEGs. 4K ProRes video is 20× larger than compressed 4K. Professional workflows require significantly more storage than our defaults suggest.",
       icon: Eye,
     },
     {
-      title: "Grass type matters",
-      description: "Warm-season and cool-season grasses have different maintenance needs and cost profiles — especially for fertilizing and aeration timing.",
+      title: "SSDs have write endurance limits",
+      description: "Consumer NVMe SSDs are rated for 300–1,000+ TBW (terabytes written). For typical users, this represents 10–20 years of use. Heavy video editing workflows may exhaust this faster.",
       icon: CircleAlert,
     },
     {
-      title: "Always get local quotes",
-      description: "Use these estimates to benchmark local quotes, but get at least 2–3 quotes from local services before deciding.",
+      title: "Keep 15–20% free for performance",
+      description: "Both SSDs and HDDs experience performance degradation when full — plan storage with buffer space for system operations and future content growth.",
       icon: ShieldCheck,
     },
   ],
 };
 
-export const fenceCostTrustContent: TrustContentEntry = {
+export const internetSpeedTrustContent: TrustContentEntry = {
   eyebrow: "Trust and disclosure",
-  heading: "Fence cost estimates are material benchmarks — labor and local factors vary",
+  heading: "Speed estimates reflect typical per-activity requirements — your ISP delivery may differ",
   intro:
-    "This calculator provides realistic material cost estimates and national average labor costs. Your actual fence project cost depends on local labor rates, terrain, soil conditions, and material availability.",
+    "Bandwidth requirements in this calculator reflect typical usage under normal conditions. Video call quality also depends on your upload speed and latency, which may not match advertised plan speeds.",
   surface: "light",
-  accent: "emerald",
+  accent: "blue",
   items: [
     {
-      title: "Material costs change seasonally",
-      description: "Lumber prices in particular fluctuate significantly. Check current prices at your local lumber yard before finalizing the budget.",
+      title: "Test actual speeds first",
+      description: "Run speed tests at fast.com and speedtest.net before deciding to upgrade your plan. Router and WiFi issues are more often the bottleneck than plan speed.",
       icon: Eye,
     },
     {
-      title: "Underground utilities",
-      description: "Always call 811 before digging post holes. Utility strikes are dangerous and can result in costly repairs and fines.",
+      title: "Upload speed is often the constraint",
+      description: "Cable internet plans are typically asymmetric (fast download, slow upload). Video calls and cloud backup are limited by upload speed — check your plan's upload rating.",
       icon: CircleAlert,
     },
     {
-      title: "Check property lines",
-      description: "Install a fence only on your confirmed property. Survey errors have led to costly fence removal and neighbor disputes.",
+      title: "Latency matters for gaming and calls",
+      description: "Speed alone doesn't determine video call or gaming quality — latency (ping) below 50ms is important. Fiber typically provides lower latency than cable.",
       icon: ShieldCheck,
     },
   ],
 };
 
-export const gardenPlantingTrustContent: TrustContentEntry = {
+export const batteryTrustContent: TrustContentEntry = {
   eyebrow: "Trust and disclosure",
-  heading: "Planting estimates are based on standard spacing guidelines — adjust for your specific plants",
+  heading: "Battery life estimates are approximations — real-world use varies significantly by device and behavior",
   intro:
-    "Plant spacing recommendations vary by variety, climate, and growing method. Our calculator uses general guidelines — always verify spacing for the specific cultivar you are planting.",
+    "Manufacturer battery life claims are tested under controlled conditions that rarely match real-world usage. Our calculator applies typical drain factors, but results vary based on specific app behavior, cellular signal strength, and temperature.",
   surface: "light",
-  accent: "emerald",
+  accent: "blue",
   items: [
     {
-      title: "Variety-specific spacing matters",
-      description: "Spacing requirements for determinate vs. indeterminate tomatoes, for example, differ by 50% or more. Check seed packets or plant tags.",
+      title: "Device-specific efficiency varies",
+      description: "Battery management software, processor architecture efficiency, and display technology (OLED vs. LCD) significantly affect real-world battery life beyond capacity alone.",
       icon: Eye,
     },
     {
-      title: "Soil depth affects root growth",
-      description: "Root vegetables need 12–18 inches of loose soil. Verify your raised bed depth before planning a root crop.",
-      icon: FileCheck,
+      title: "Signal strength affects battery dramatically",
+      description: "A phone searching for 5G signal in weak-coverage areas uses 2–3× more cellular power than the same device in strong signal areas.",
+      icon: CircleAlert,
     },
     {
-      title: "Yield estimates are approximate",
-      description: "Harvest yields depend on weather, pest pressure, watering consistency, and growing season length — estimates are averages only.",
-      icon: CircleAlert,
+      title: "Battery health check is important",
+      description: "Battery capacity degrades 1–3% per month under typical use. Check battery health (iPhone: Settings > Battery, Android: Battery usage) before assuming hardware needs replacement.",
+      icon: ShieldCheck,
     },
   ],
 };
 
-export const renovationTrustContent: TrustContentEntry = {
+export const gpuComparisonTrustContent: TrustContentEntry = {
   eyebrow: "Trust and disclosure",
-  heading: "Renovation estimates are planning benchmarks — actual costs require contractor quotes",
+  heading: "GPU performance benchmarks are approximations based on published review data",
   intro:
-    "Home renovation budgets depend on your home's age, current condition, material selections, and local labor costs. This calculator provides a realistic starting range — always verify with professional estimates before committing funds.",
+    "GPU performance varies by game, driver version, CPU pairing, and game settings. Our comparisons use relative performance scores from independent review aggregates — your specific benchmark results may differ by 5–15%.",
   surface: "light",
-  accent: "emerald",
+  accent: "blue",
   items: [
     {
-      title: "Hidden conditions are common",
-      description: "Older homes frequently reveal plumbing, electrical, or structural issues once walls are opened. Always hold a contingency budget.",
+      title: "Driver versions affect performance",
+      description: "GPU performance improves with driver updates, particularly at game launch. Both NVIDIA and AMD release optimization drivers that can change benchmark results 5–15% for specific titles.",
+      icon: Eye,
+    },
+    {
+      title: "CPU bottlenecking affects GPU scores",
+      description: "At 1080p, GPU performance is more limited by CPU single-core speed than at 1440p or 4K. An older CPU will reduce effective GPU performance, especially in competitive games.",
       icon: CircleAlert,
     },
     {
-      title: "Permits affect scope and timeline",
-      description: "Permitted work requires inspection and may affect timeline. Budget for permit fees in your total project cost.",
-      icon: FileCheck,
-    },
-    {
-      title: "Get professional design input",
-      description: "For full room renovations, a design consultation ($100–$500) often prevents expensive material or layout mistakes.",
+      title: "VRAM capacity matters increasingly",
+      description: "Several 2024–2025 titles have exceeded 8GB VRAM at maximum texture settings. 12GB+ VRAM is increasingly important for future-proofing mid-to-high-end builds.",
       icon: ShieldCheck,
     },
   ],
@@ -279,25 +331,25 @@ export const renovationTrustContent: TrustContentEntry = {
 
 export const guidesTrustContent: TrustContentEntry = {
   eyebrow: "Trust and clarity",
-  heading: "Our guides are educational — they explain concepts, not provide professional advice",
+  heading: "Our guides are educational — they explain concepts, not provide professional technical advice",
   intro:
-    "Gardens guides help you understand home and garden topics clearly. They are not a substitute for licensed contractor assessments, building inspections, or professional design services.",
+    "TechIQ guides help you understand computers and electronics topics clearly. They are not a substitute for professional IT consultation, hardware compatibility verification tools, or manufacturer technical support.",
   surface: "light",
-  accent: "emerald",
+  accent: "blue",
   items: [
     {
       title: "Educational by design",
-      description: "Guides are written to explain concepts and real-world cost ranges — not to replace professional assessment of your specific situation.",
+      description: "Guides are written to explain concepts and real-world performance ranges — not to replace professional assessment of your specific hardware situation.",
       icon: BookMarked,
     },
     {
       title: "Transparent context",
-      description: "Articles are paired with calculators and legal pages so readers can test assumptions and understand our site's purpose.",
+      description: "Articles are paired with calculators and comparison tools so readers can test assumptions and understand our site's educational purpose.",
       icon: Eye,
     },
     {
       title: "Privacy-first tools",
-      description: "All calculators work in your browser without storing your project details or requiring an account.",
+      description: "All calculators work in your browser without storing your component choices or requiring an account.",
       icon: ShieldCheck,
     },
   ],
@@ -309,7 +361,7 @@ export const contactTrustContent: TrustContentEntry = {
   intro:
     "When something is unclear, incorrect, or missing from our tools and guides, hearing from you directly is the fastest way to improve the platform for everyone.",
   surface: "light",
-  accent: "emerald",
+  accent: "blue",
   items: [
     {
       title: "Questions are welcome",
@@ -317,13 +369,13 @@ export const contactTrustContent: TrustContentEntry = {
       icon: BookMarked,
     },
     {
-      title: "Support is not professional advice",
-      description: "We can explain our tools and content, but cannot provide project-specific professional recommendations.",
+      title: "Support is not professional technical advice",
+      description: "We can explain our tools and content, but cannot provide specific hardware repair diagnoses or professional IT consultation.",
       icon: CircleAlert,
     },
     {
       title: "Feedback improves the platform",
-      description: "Corrections, missing content suggestions, and usability feedback all help make Gardens more useful and accurate.",
+      description: "Corrections, missing content suggestions, and usability feedback all help make TechIQ more useful and accurate.",
       icon: ShieldCheck,
     },
   ],
@@ -331,15 +383,15 @@ export const contactTrustContent: TrustContentEntry = {
 
 export const legalTrustContent: TrustContentEntry = {
   eyebrow: "Policy clarity",
-  heading: "These policy pages exist to be clear about what Gardens is and is not",
+  heading: "These policy pages exist to be clear about what TechIQ is and is not",
   intro:
     "Legal and policy pages clarify how the site works, what users can expect, and where the limits of our responsibility begin.",
   surface: "light",
-  accent: "emerald",
+  accent: "blue",
   items: [
     {
       title: "Clear boundaries",
-      description: "Gardens is an educational platform. It does not provide professional contractor, legal, or engineering advice.",
+      description: "TechIQ is an educational platform. It does not provide professional IT consulting, hardware repair services, or compatibility guarantees.",
       icon: FileCheck,
     },
     {
@@ -357,25 +409,25 @@ export const legalTrustContent: TrustContentEntry = {
 
 export const articleTrustContent: TrustContentEntry = {
   eyebrow: "Trust and context",
-  heading: "How to use a home and garden guide responsibly",
+  heading: "How to use a technology guide responsibly",
   intro:
-    "Guide pages are written to explain concepts and provide realistic cost ranges, but they are not a substitute for on-site professional assessment of your specific home and project.",
+    "Guide pages are written to explain concepts and provide realistic performance and cost ranges, but they are not a substitute for current price verification, compatibility checking, or professional technical assessment of your specific situation.",
   surface: "light",
-  accent: "emerald",
+  accent: "blue",
   items: [
     {
       title: "Framework, not final answer",
-      description: "The guide gives structure and context, but your specific conditions — home age, local codes, climate — require verification.",
+      description: "The guide gives structure and context, but your specific components, budget, and use case require verification with current data.",
       icon: BookMarked,
     },
     {
       title: "Examples are illustrative",
-      description: "STAR scenarios show realistic outcomes but may not reflect current material prices or labor costs in your specific market.",
+      description: "STAR scenarios show realistic outcomes but may not reflect current hardware prices or regional availability in your specific market.",
       icon: FileCheck,
     },
     {
       title: "Pair reading with calculators",
-      description: "The strongest use of these guides is learning the concept, then using the relevant calculator to model your own project.",
+      description: "The strongest use of these guides is learning the concept, then using the relevant calculator to model your own specific situation.",
       icon: ShieldCheck,
     },
   ],

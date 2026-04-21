@@ -1,6 +1,7 @@
 {
-  "name": "Gardens — Home & Garden Tools",
-  "short_name": "Gardens",
+  "name": "TechIQ — Computer & Electronics Tools",
+  "short_name": "TechIQ",
+  "description": "Free computer and electronics calculators, buying guides, and expert advice to make smarter tech decisions.",
   "icons": [
     {
       "src": "/favicon-32x32.png",
@@ -13,7 +14,7 @@
       "type": "image/png"
     }
   ],
-  "theme_color": "#14532d",
+  "theme_color": "#2563eb",
   "background_color": "#0f172a",
   "display": "standalone"
 }

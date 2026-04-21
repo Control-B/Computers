@@ -6,19 +6,26 @@ import { SeoManager } from "@/components/SeoManager";
 import NotFound from "@/pages/not-found";
 
 import HomePage from "@/pages/home";
-import HomeImprovementCategory from "@/pages/home-improvement";
-import GardenCategory from "@/pages/garden";
-import ExteriorCategory from "@/pages/exterior";
 
-import RoofCostCalculator from "@/pages/roof-cost";
-import PaintCalculator from "@/pages/paint";
-import LawnCareCalculator from "@/pages/lawn-care";
-import FenceCostCalculator from "@/pages/fence-cost";
-import GardenPlantingCalculator from "@/pages/garden-planting";
-import HomeRenovationCalculator from "@/pages/home-renovation";
+// Category Pages
+import LaptopsCategory from "@/pages/laptops";
+import ComponentsCategory from "@/pages/components";
+import NetworkingCategory from "@/pages/networking";
+import SmartphonesCategory from "@/pages/smartphones";
 
+// Calculator Pages
+import PCBuildCalculator from "@/pages/pc-build-calculator";
+import PSUCalculator from "@/pages/psu-calculator";
+import StorageCalculator from "@/pages/storage-calculator";
+import InternetSpeedEstimator from "@/pages/internet-speed-estimator";
+import BatteryLifeCalculator from "@/pages/battery-life-calculator";
+import GPUComparison from "@/pages/gpu-comparison";
+
+// Guides & Articles
 import GuidesPage from "@/pages/guides";
 import ArticlePage from "@/pages/article";
+
+// Legal & Info
 import LegalPage from "@/pages/legal";
 import ContactPage from "@/pages/contact";
 
@@ -29,30 +36,43 @@ function Router() {
     <Switch>
       {/* Main Pages */}
       <Route path="/" component={HomePage} />
-      <Route path="/home-improvement" component={HomeImprovementCategory} />
-      <Route path="/garden" component={GardenCategory} />
-      <Route path="/exterior" component={ExteriorCategory} />
 
-      {/* Calculators */}
-      <Route path="/roof-cost-calculator" component={RoofCostCalculator} />
-      <Route path="/paint-calculator" component={PaintCalculator} />
-      <Route path="/lawn-care-calculator" component={LawnCareCalculator} />
-      <Route path="/fence-cost-calculator" component={FenceCostCalculator} />
-      <Route path="/garden-planting-calculator" component={GardenPlantingCalculator} />
-      <Route path="/home-renovation-calculator" component={HomeRenovationCalculator} />
+      {/* Category Pages */}
+      <Route path="/laptops" component={LaptopsCategory} />
+      <Route path="/components" component={ComponentsCategory} />
+      <Route path="/networking" component={NetworkingCategory} />
+      <Route path="/smartphones" component={SmartphonesCategory} />
+
+      {/* Calculator & Tool Pages */}
+      <Route path="/pc-build-calculator" component={PCBuildCalculator} />
+      <Route path="/psu-calculator" component={PSUCalculator} />
+      <Route path="/storage-calculator" component={StorageCalculator} />
+      <Route path="/internet-speed-estimator" component={InternetSpeedEstimator} />
+      <Route path="/battery-life-calculator" component={BatteryLifeCalculator} />
+      <Route path="/gpu-comparison" component={GPUComparison} />
 
       {/* Guides & Articles */}
       <Route path="/guides" component={GuidesPage} />
-      <Route path="/how-to-fix-a-leaking-faucet" component={ArticlePage} />
-      <Route path="/how-to-choose-roof-material" component={ArticlePage} />
-      <Route path="/how-to-prepare-garden-for-spring" component={ArticlePage} />
-      <Route path="/how-to-save-on-lawn-care-costs" component={ArticlePage} />
-      <Route path="/diy-fence-installation-guide" component={ArticlePage} />
-      <Route path="/when-to-diy-vs-hire-a-contractor" component={ArticlePage} />
-      <Route path="/how-to-create-a-raised-garden-bed" component={ArticlePage} />
-      <Route path="/best-plants-for-low-maintenance-gardens" component={ArticlePage} />
-      <Route path="/how-to-winterize-your-home" component={ArticlePage} />
-      <Route path="/how-to-paint-a-room-like-a-pro" component={ArticlePage} />
+      <Route path="/best-laptop-for-programming-under-1000" component={ArticlePage} />
+      <Route path="/how-to-fix-slow-computer-performance" component={ArticlePage} />
+      <Route path="/what-gpu-do-you-need-for-gaming" component={ArticlePage} />
+      <Route path="/how-to-speed-up-internet-connection" component={ArticlePage} />
+      <Route path="/ssd-vs-hdd-which-should-you-choose" component={ArticlePage} />
+      <Route path="/how-to-build-a-pc-step-by-step" component={ArticlePage} />
+      <Route path="/why-phone-battery-drains-fast-and-fixes" component={ArticlePage} />
+      <Route path="/ram-upgrade-guide" component={ArticlePage} />
+      <Route path="/how-to-choose-monitor-for-gaming" component={ArticlePage} />
+      <Route path="/best-budget-gaming-pc-builds" component={ArticlePage} />
+      <Route path="/wifi-vs-ethernet-which-is-better" component={ArticlePage} />
+      <Route path="/what-is-good-internet-speed" component={ArticlePage} />
+      <Route path="/how-to-upgrade-pc-storage-ssd-guide" component={ArticlePage} />
+      <Route path="/20-most-common-computer-problems-and-fixes" component={ArticlePage} />
+      <Route path="/how-to-protect-pc-from-viruses-malware" component={ArticlePage} />
+      <Route path="/gaming-pc-vs-console-total-cost-of-ownership" component={ArticlePage} />
+      <Route path="/how-to-choose-right-cpu" component={ArticlePage} />
+      <Route path="/best-smartphones-for-the-money" component={ArticlePage} />
+      <Route path="/how-to-set-up-home-network" component={ArticlePage} />
+      <Route path="/psu-buying-guide" component={ArticlePage} />
 
       {/* Legal & Info */}
       <Route path="/privacy-policy" component={LegalPage} />
